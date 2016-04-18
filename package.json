@@ -1,0 +1,25 @@
+{
+  "name": "syn-back-office",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "syn-dev-tools": "0.0.5"
+  },
+  "scripts": {
+    "test": "gulp test",
+    "install": "node_modules/.bin/gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soyundev/syn-back-office.git"
+  },
+  "author": "David Almeida <davidbarna@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/soyundev/syn-back-office/issues"
+  },
+  "homepage": "https://github.com/soyundev/syn-back-office#readme"
+}
