@@ -1,0 +1,9 @@
+html
+  head
+    link( type="text/css" href="/index.css" rel="stylesheet" )
+  body
+    h1 Demos
+    syn-model-form
+    script(type='text/javascript', src='/index.bundle.js')
+    script(type='text/javascript').
+      angular.bootstrap( document.body, [ syn.bo.angular.getModule().name ] )

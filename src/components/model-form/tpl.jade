@@ -1,0 +1,6 @@
+form(ng-if='!!vm.model' ng-submit='vm.onSubmit()', novalidate='')
+  formly-form(model='vm.model', fields='vm.fields', form='vm.form')
+    button.btn.btn-primary.submit-button(type='submit') Submit
+    
+pre {{ vm.model | json }}
+pre {{ vm.fields | json }}
