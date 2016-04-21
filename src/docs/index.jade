@@ -1,9 +1,12 @@
 html
   head
     link( type="text/css" href="/index.css" rel="stylesheet" )
-  body
-    h1 Demos
-    syn-model-form
+  body.container
+    .page-header
+      h1 Demos
+    syn-model-form( model="hotel" )
     script(type='text/javascript', src='/index.bundle.js')
     script(type='text/javascript').
+      syn.bo.config.api.url = '/docs/api'
+      syn.bo.config.api.resource.schema = 'schema/{{ model }}.json'
       angular.bootstrap( document.body, [ syn.bo.angular.getModule().name ] )
