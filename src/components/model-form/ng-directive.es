@@ -1,11 +1,15 @@
 import FormCtrl from './ctrl'
 
 let formDirective = {
-  scope: true,
+  scope: {
+    model: '@',
+    id: '@'
+  },
   template: require('./tpl'),
-  controller: [ '$scope', (scope) => {
+  controller: [ '$scope', '$element', (scope, element) => {
     let ctrl = new FormCtrl(scope)
-    ctrl.init()
+    ctrl
+      .setModel(scope.model, scope.id)
   }]
 }
 export default () => formDirective
