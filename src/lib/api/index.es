@@ -41,6 +41,17 @@ class Api {
     params.method = 'POST'
     return getData(getUrl(conf.resource.form, resource), params)
   }
+
+  /**
+   * Deleted item from API
+   * @param  {string} resource Name of the resource
+   * @param  {string|number} id Id of item
+   * @return {Promise}
+   */
+  static delete (resource, id) {
+    let params = { method: 'DELETE' }
+    return getData(getUrl(conf.resource.rest, resource, id), params)
+  }
 }
 
 /**
@@ -50,7 +61,7 @@ class Api {
  * @param  {string|number} id
  * @return {string} Valid Url
  */
-var getUrl = (baseUrl, resource = '', id = '') => {
+var getUrl = (baseUrl, resource = '' , id = '') => {
   if (baseUrl.indexOf('://') === -1) {
     baseUrl = conf.url + baseUrl
   }

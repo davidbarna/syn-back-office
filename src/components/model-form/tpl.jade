@@ -8,7 +8,10 @@ form(
     fields='formly.fields'
     form='formly.form'
   )
-    button.btn.btn-primary.submit-button(type='submit') Submit
+  .btn-group
+  button.btn.btn-primary(type='submit') Submit
+  | &nbsp;
+  button.btn.btn-danger(type="button" ng-click="formly.onDelete(formly.form)") Delete
 
 //- Debug info
 form()

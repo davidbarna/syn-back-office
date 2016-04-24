@@ -86,6 +86,15 @@ class Model {
   update (params) {
     return Api.post(this.model, { body: params })
   }
+
+  /**
+   * Deletes item in API
+   * @param  {string} id
+   * @return {Promise}
+   */
+  delete (id) {
+    return Api.delete(this.model, id)
+  }
 }
 
 export default Model

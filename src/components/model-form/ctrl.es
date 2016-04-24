@@ -37,6 +37,9 @@ class ModelFormCtrl {
       .then(() => {
         this.update()
       })
+      .catch((e) => {
+        window.alert('Error: ' + e.message)
+      })
   }
 
   update () {
@@ -47,6 +50,9 @@ class ModelFormCtrl {
       onSubmit: (form) => {
         this.form = form
         this.submit()
+      },
+      onDelete: () => {
+        this.delete()
       }
     }
     this.scope.$digest()
@@ -58,6 +64,23 @@ class ModelFormCtrl {
 
   isPristine () {
     return this.form.$pristine
+  }
+
+  reset () {
+    this.setModel(this.modelName)
+  }
+
+  delete () {
+    if (window.confirm('Are you sure?')) {
+      this.actions.delete(this.model.id)
+        .then(() => {
+          alert('Deleted!')
+          this.reset()
+        })
+        .catch((e) => {
+          alert('Error: ' + e.message)
+        })
+    }
   }
 
   submit () {
