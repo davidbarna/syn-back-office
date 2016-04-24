@@ -61,7 +61,7 @@ class Api {
  * @param  {string|number} id
  * @return {string} Valid Url
  */
-var getUrl = (baseUrl, resource = '' , id = '') => {
+var getUrl = (baseUrl, resource = '', id = '') => {
   if (baseUrl.indexOf('://') === -1) {
     baseUrl = conf.url + baseUrl
   }

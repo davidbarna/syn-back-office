@@ -1,0 +1,21 @@
+$c-brand: #3cc;
+
+@import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "../node_modules/syn-ui/src/scss/_index.scss";
+@import "_layout.scss";
+
+syn-app-header {
+  h1 {
+    margin-top: 0;
+    font-size: 25px;
+  }
+}
+
+syn-nav-stack, syn-app-header {
+  position: fixed !important;
+  z-index: 10 !important;
+}
+
+.syn-nav-stacked_label {
+  color: rgba( #fff, .7 );
+}

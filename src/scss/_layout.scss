@@ -1,0 +1,33 @@
+$_aside-width: 200px;
+
+.syn-bo-layout {
+
+  &_aside, &_main {
+    position: absolute;
+    top: $syn-app-header-height;
+    left: 0;
+    border-top: 1px solid #fff;
+  }
+
+  &_aside {
+    width: $_aside-width;
+    bottom: 0;
+  }
+
+  &_main {
+    right: 0;
+    bottom: 0;
+    left: $_aside-width;
+    border-left: 1px solid #fff;
+  }
+}
+
+// Layout for mobile
+@media #{$small-only} {
+  .syn-bo-layout {
+
+    &_aside, &_main {
+      top: $syn-app-header-height--small;
+    }
+  }
+}

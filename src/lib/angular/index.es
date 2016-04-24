@@ -3,6 +3,7 @@
  */
 import angular from 'angular'
 import uiRouter from 'angular-ui-router'
+import synUI from 'syn-ui'
 import synFormly from './formly'
 import routes from './routes'
 import modelForm from '../../components/model-form/ng-directive'
@@ -14,7 +15,11 @@ export default {
    * @return {Object} Angular module instance
    */
   getModule () {
-    return angular.module('syn.backOffice', [ uiRouter, synFormly.getModule().name ])
+    return angular.module('syn.backOffice', [
+      uiRouter,
+      synUI.angular.getModule().name,
+      synFormly.getModule().name
+    ])
 
       // Directives config
       .directive('synModelForm', modelForm)

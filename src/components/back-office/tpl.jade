@@ -1,2 +1,13 @@
-h1 BackOffice
-ui-view
+.syn-bo-layout
+  syn-app-header.syn-bo-layout_header
+    logo 
+      h1 BackOffice
+
+syn-nav-stack.syn-bo-layout_aside(
+  options="menuConfig" 
+  channel="{{ channel }}"
+  compact
+)
+.syn-bo-layout_main
+  .container
+    ui-view
