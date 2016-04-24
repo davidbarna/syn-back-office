@@ -6,6 +6,8 @@
 import Model from '../../lib/model'
 import DataParser from '../../lib/model/parser'
 
+var alert = window.alert
+
 class ModelFormCtrl {
 
   constructor (scope) {
@@ -84,8 +86,6 @@ class ModelFormCtrl {
   }
 
   submit () {
-    var alert = window.alert
-
     if (!this.isValid()) {
       alert('Form is invalid. Please review.')
       return
