@@ -1,7 +1,9 @@
 html
   head
     link( rel="stylesheet" type="text/css" href="/index.css" )
-  body
-    h1 BackOffice
+  body.container
+    ui-view
     script(type='text/javascript') window.env = '#{env}'
     script(type='text/javascript', src='/index.bundle.js')
+    script(type='text/javascript').
+      angular.bootstrap( document.body, [ syn.bo.angular.getModule().name ] )

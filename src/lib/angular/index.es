@@ -1,11 +1,35 @@
+/**
+ * Main angular module factory
+ */
+import angular from 'angular'
+import uiRouter from 'angular-ui-router'
+import synFormly from './formly'
+import routes from './routes'
 import modelForm from '../../components/model-form/ng-directive'
-window.angular = require('angular')
-var ngFormly = require('angular-formly')
-var ngFormlyBootstrap = require('angular-formly-templates-bootstrap')
+import backOffice from '../../components/back-office/ng-directive'
 
 export default {
+  /**
+   * Returns main back office angular module
+   * @return {Object} Angular module instance
+   */
   getModule () {
-    return window.angular.module('syn.forms', [ ngFormly, ngFormlyBootstrap ])
+    return angular.module('syn.backOffice', [ uiRouter, synFormly.getModule().name ])
+
+      // Directives config
       .directive('synModelForm', modelForm)
+      .directive('synBackOffice', backOffice)
+
+      // Routing config with ui-router
+      .config([
+        '$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+          for (let key of Object.keys(routes)) {
+            $stateProvider.state(key, routes[key])
+          }
+          $urlRouterProvider.otherwise('/')
+        }
+      ])
   }
 }
+
+window.angular = angular
