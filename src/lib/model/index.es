@@ -36,19 +36,36 @@ class Model {
    * @param  {Schema} schema
    * @return {Promise}
    */
-  getFields (schema) {
-    return Fields.getFromSchema(this.model, schema.attrs())
+  getFields () {
+    return this.getSchema()
+      .then((schema) => {
+        return Fields.getFromSchema(this.model, schema.attrs())
+      })
+  }
+
+  /**
+   * Returns a data parser for the model
+   * @return {Promise}
+   */
+  getParser () {
+    return this.getSchema()
+      .then((schema) => {
+        this.parser = new Parser(schema)
+        return this.parser
+      })
+  }
+
   }
 
   /**
    * Returns a list of options from an API resource
    * @return {Promise}
    */
-  getOptions () {
+  findPopulate () {
     return Promise.all([this.getSchema(), this.find()])
       .then((responses) => {
         var [schema, results] = responses
-        var parser = new Parser(schema)
+        var parser = this.parser || new Parser(schema)
         var keys = schema.translationKeys()
 
         for (let item of results) {

@@ -14,7 +14,7 @@ class ManyToOneField extends FieldAbstract {
         obj.templateOptions.valueProp = this.conf.valueProp || 'id'
         obj.templateOptions.labelProp = this.conf.labelProp || 'id'
         obj.templateOptions.options = []
-        return this.actions.getOptions()
+        return this.actions.findPopulate()
           .then((results) => {
             obj.templateOptions.options = results
             return obj

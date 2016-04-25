@@ -4,7 +4,6 @@
  */
 
 import Model from '../../lib/model'
-import DataParser from '../../lib/model/parser'
 
 var alert = window.alert
 
@@ -21,11 +20,10 @@ class ModelFormCtrl {
     this.model = {}
     this.editionMode = !!id
     this.actions = new Model(modelName)
-    this.actions.getSchema()
-      .then((schema) => {
-        this.schema = schema
-        this.parser = new DataParser(schema)
-        return this.actions.getFields(schema)
+    this.actions.getParser()
+      .then((parser) => {
+        this.parser = parser
+        return this.actions.getFields()
       })
       .then((fields) => {
         this.fields = fields
