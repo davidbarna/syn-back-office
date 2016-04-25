@@ -4,6 +4,7 @@
 import angular from 'angular'
 import uiRouter from 'angular-ui-router'
 import synUI from 'syn-ui'
+import synGrids from 'syn-grids'
 import synFormly from './formly'
 import routes from './routes'
 import modelForm from '../../components/model-form/ng-directive'
@@ -18,6 +19,7 @@ export default {
     return angular.module('syn.backOffice', [
       uiRouter,
       synUI.angular.getModule().name,
+      synGrids.angular.getModule().name,
       synFormly.getModule().name
     ])
 

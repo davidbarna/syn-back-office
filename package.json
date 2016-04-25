@@ -12,6 +12,7 @@
     "bootstrap-sass": "3.3.6",
     "lodash": "4.11.1",
     "syn-core": "~1",
+    "syn-grids": "~0",
     "syn-ui": "~0"
   },
   "devDependencies": {
