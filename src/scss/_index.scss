@@ -11,20 +11,17 @@ syn-app-header {
   }
 }
 
-syn-nav-stack, syn-app-header {
-  position: fixed !important;
-  z-index: 10 !important;
-}
-
 .syn-nav-stacked {
   a {
     text-decoration: none;
   }
 
+  .syn-nav-stacked_label {
+    color: rgba( #fff, .7 );
+  }
+
   .syn-nav-stacked_button {
     .syn-nav-stacked_label {
-      color: rgba( #fff, .7 );
-
       &.-level-2 {
         font-size: 2rem;
       }
