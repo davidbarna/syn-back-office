@@ -29,7 +29,7 @@ routes[states.form.name] = {
 routes[states.list.name] = {
   parent: states.model.name,
   url: states.list.url,
-  template: 'LIST'
+  template: '<syn-model-grid model="{{model}}" />'
 }
 
 export default routes

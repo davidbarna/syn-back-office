@@ -7,8 +7,9 @@ import synUI from 'syn-ui'
 import synGrids from 'syn-grids'
 import synFormly from './formly'
 import routes from './routes'
-import modelForm from '../../components/model-form/ng-directive'
 import backOffice from '../../components/back-office/ng-directive'
+import modelForm from '../../components/model-form/ng-directive'
+import modelGrid from '../../components/model-grid/ng-directive'
 
 export default {
   /**
@@ -24,8 +25,9 @@ export default {
     ])
 
       // Directives config
-      .directive('synModelForm', modelForm)
       .directive('synBackOffice', backOffice)
+      .directive('synModelForm', modelForm)
+      .directive('synModelGrid', modelGrid)
 
       // Routing config with ui-router
       .config([

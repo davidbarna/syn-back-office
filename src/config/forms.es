@@ -55,6 +55,11 @@ export default {
           label: 'Nombre del pais'
         }
       },
+      city: {
+        country: {
+          priority: -1
+        }
+      },
       service: {
         hotel: {
           discard: true

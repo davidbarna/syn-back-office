@@ -3,6 +3,7 @@
  */
 import Schema from './schema'
 import Fields from './fields'
+import Header from './header'
 import Api from '../api'
 import Parser from './parser'
 
@@ -55,6 +56,15 @@ class Model {
       })
   }
 
+  /**
+   * Returns head config for grids component.
+   * @return {Promise}
+   */
+  getHeader () {
+    return this.getSchema()
+      .then((schema) => {
+        return Header.getFromSchema(this.model, schema.attrs())
+      })
   }
 
   /**

@@ -1,4 +1,5 @@
 import forms from './forms'
+import grids from './grids'
 
 export default {
   production: {
@@ -14,7 +15,8 @@ export default {
         rest: '/api/v1/:model/:modelId'
       }
     },
-    forms: forms
+    forms: forms,
+    grids: grids
   },
   development: {
     _extends: 'production',
