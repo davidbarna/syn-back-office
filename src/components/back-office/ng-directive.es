@@ -1,6 +1,5 @@
 import BackOfficeCtrl from './ctrl'
 import core from 'syn-core'
-import states from '../../config/states'
 
 let backOfficeDirective = {
   scope: true,
@@ -9,8 +8,9 @@ let backOfficeDirective = {
     '$element', '$scope', '$state',
     (element, scope, state) => {
       let goFunc = (item) => {
-        console.log(states.form.name, { model: item.model })
-        state.go(states.form.name, { model: item.model, id: null })
+        if (item.state) {
+          state.go(item.state, item.params)
+        }
       }
       let ctrl = new BackOfficeCtrl(element)
       core.angularify(scope, ctrl)

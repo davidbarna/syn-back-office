@@ -7,7 +7,7 @@ $c-brand: #3cc;
 syn-app-header {
   h1 {
     margin-top: 0;
-    font-size: 25px;
+    font-size: 2.5rem;
   }
 }
 
@@ -16,6 +16,18 @@ syn-nav-stack, syn-app-header {
   z-index: 10 !important;
 }
 
-.syn-nav-stacked_label {
-  color: rgba( #fff, .7 );
+.syn-nav-stacked {
+  a {
+    text-decoration: none;
+  }
+
+  .syn-nav-stacked_button {
+    .syn-nav-stacked_label {
+      color: rgba( #fff, .7 );
+
+      &.-level-2 {
+        font-size: 2rem;
+      }
+    }
+  }
 }
