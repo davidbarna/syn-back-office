@@ -9,6 +9,7 @@
     "angular-formly-templates-bootstrap": "6.4.0",
     "angular-ui-router": "0.2.18",
     "api-check": "7.5.5",
+    "bootstrap": "3.3.6",
     "bootstrap-sass": "3.3.6",
     "lodash": "4.11.1",
     "syn-core": "~1",
