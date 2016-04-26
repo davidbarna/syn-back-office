@@ -105,6 +105,18 @@ export default {
               params: { model: 'language', id: null }
             }
           }
+        },
+        files: {
+          label: 'Archivos',
+          state: states.list.name,
+          params: { model: 'mediafile' },
+          nav: {
+            fileCreation: {
+              label: '+',
+              state: states.form.name,
+              params: { model: 'mediafile', id: null }
+            }
+          }
         }
       }
     }
