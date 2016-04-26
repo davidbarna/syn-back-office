@@ -19,7 +19,8 @@
     "syn-dev-tools": "~0"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/scss"
   ],
   "scripts": {
     "test": "gulp test",
