@@ -43,6 +43,17 @@ class Api {
   }
 
   /**
+   * Modifies item on API
+   * @param  {string} resource Name of the resource
+   * @param  {Object} params = {} Standar fetch params
+   * @return {Promise}
+   */
+  static put (resource, params = {}) {
+    params.method = 'PUT'
+    return getData(getUrl(conf.resource.form, resource), params)
+  }
+
+  /**
    * Deleted item from API
    * @param  {string} resource Name of the resource
    * @param  {string|number} id Id of item

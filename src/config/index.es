@@ -8,11 +8,11 @@ export default {
       version: '0.0.0'
     },
     api: {
-      url: 'http://localhost:1337',
+      url: 'http://localhost:1337/api/v1',
       resource: {
-        schema: '/schema/:model',
-        form: '/form/process/:model',
-        rest: '/api/v1/:model/:modelId'
+        schema: '/:model/schema',
+        form: '/:model/form/process',
+        rest: '/:model/:modelId'
       }
     },
     forms: forms,

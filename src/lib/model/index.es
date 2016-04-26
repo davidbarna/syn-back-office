@@ -111,7 +111,11 @@ class Model {
    * @return {Promise}
    */
   update (params) {
-    return Api.post(this.model, { body: params })
+    if (params.id) {
+      return Api.put(this.model, { body: params })
+    } else {
+      return Api.post(this.model, { body: params })
+    }
   }
 
   /**
