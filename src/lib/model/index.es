@@ -106,16 +106,21 @@ class Model {
   }
 
   /**
-   * Updates/Creates model in API
+   * Creates new model in API
+   * @param  {Object} params Properties to update
+   * @return {Promise}
+   */
+  create (params) {
+    return Api.post(this.model, { body: params })
+  }
+
+  /**
+   * Updates model in API
    * @param  {Object} params Properties to update
    * @return {Promise}
    */
   update (params) {
-    if (params.id) {
-      return Api.put(this.model, { body: params })
-    } else {
-      return Api.post(this.model, { body: params })
-    }
+    return Api.put(this.model, { body: params })
   }
 
   /**

@@ -92,7 +92,15 @@ class ModelFormCtrl {
       alert('Form was not edited. No need to submit.')
       return
     }
-    this.actions.update(this.parser.fromForm(this.params))
+
+    let promise = null
+    if (this.editionMode) {
+      promise = this.actions.update(this.parser.fromForm(this.params))
+    } else {
+      promise = this.actions.create(this.parser.fromForm(this.params))
+    }
+
+    promise
       .then((response) => {
         alert('Success: ' + response.id)
       })
