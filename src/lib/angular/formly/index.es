@@ -15,10 +15,10 @@ export default {
    */
   getModule () {
     return angular.module('syn.backOffice.formly', [ ngFormly, ngFormlyBootstrap ])
-      .config(function (formlyConfigProvider) {
+      .config(['formlyConfigProvider', function (formlyConfigProvider) {
         for (let wrapper of wrappers) {
           formlyConfigProvider.setWrapper(wrapper)
         }
-      })
+      }])
   }
 }
