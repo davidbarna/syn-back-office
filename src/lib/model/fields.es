@@ -18,7 +18,7 @@ const META_KEY = 'field'
  * Form fields defaults
  * @return {Object}
  */
-var formDefaults = _.cloneDeep(Config.getInstance().forms.defaults)
+var formDefaults = null
 
 class ModelFields {
 
@@ -29,6 +29,9 @@ class ModelFields {
    * @return {Promise} List of fields
    */
   static getFromSchema (model, schema) {
+    if (!formDefaults) {
+      formDefaults = _.cloneDeep(Config.getInstance().forms.defaults)
+    }
     let fields = getFields(model, schema)
     return fields
   }
