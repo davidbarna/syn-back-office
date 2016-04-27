@@ -1,0 +1,21 @@
+@media #{$large-up} {
+  form > ng-form {
+    @include clearfix;
+    display: block;
+    clear: both;
+
+    & > .formly-field {
+      width: calc(50% - #{$spacing});
+
+      &:nth-child(odd) {
+        float: left;
+        clear: left;
+      }
+
+      &:nth-child(even) {
+        float: right;
+        clear: right;
+      }
+    }
+  }
+}

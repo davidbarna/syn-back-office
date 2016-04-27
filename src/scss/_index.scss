@@ -4,6 +4,7 @@ $c-brand: #3cc;
 @import "../node_modules/syn-ui/src/scss/_index.scss";
 @import "../node_modules/syn-grids/src/scss/_index.scss";
 @import "_layout.scss";
+@import "_forms.scss";
 
 syn-app-header {
   h1 {
