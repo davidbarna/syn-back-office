@@ -5,11 +5,13 @@ import FieldText from './field/text'
 import FieldMultiLang from './field/multi-lang'
 import FieldManyToOne from './field/many-to-one'
 import FieldManyToMany from './field/many-to-many'
+import FieldLanguageSwitch from './field/language-switch'
 
 export var Text = FieldText
 export var MultiLang = FieldMultiLang
 export var ManyToOne = FieldManyToOne
 export var ManyToMany = FieldManyToMany
+export var LanguageSwitch = FieldLanguageSwitch
 
 /**
  * According to model attribute, it returns

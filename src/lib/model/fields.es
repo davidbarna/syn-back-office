@@ -14,6 +14,8 @@ import Config from '../../lib/config'
  */
 const META_KEY = 'field'
 
+var config = Config.getInstance()
+
 /**
  * Form fields defaults
  * @return {Object}
@@ -30,11 +32,27 @@ class ModelFields {
    */
   static getFromSchema (model, schema) {
     if (!formDefaults) {
-      formDefaults = _.cloneDeep(Config.getInstance().forms.defaults)
+      formDefaults = _.cloneDeep(config.forms.defaults)
     }
     let fields = getFields(model, schema)
     return fields
   }
+}
+
+/**
+ * Returns field to switch language
+ * @param  {Defaults} defaults Config provider
+ * @return {Object} Field instance
+ */
+var getLanguageField = function (defaults) {
+  let attr = {
+    model: config.app.languages.model,
+    key: 'system.language'
+  }
+  let conf = defaults.get(attr.key, attr, META_KEY)
+  let field = new Fields.LanguageSwitch(attr, conf)
+
+  return field
 }
 
 /**
@@ -47,6 +65,9 @@ var getFields = function (model, schema) {
   let defaults = new Defaults(model, formDefaults)
   let configs = defaults.getAll(schema, META_KEY)
   let promises = []
+
+  // Default language switch field is added into any form
+  promises.push(getLanguageField(defaults).getConfig())
 
   for (let conf of configs) {
     let attr = schema[conf.key]
