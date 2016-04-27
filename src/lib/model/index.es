@@ -1,18 +1,13 @@
 /**
  * Services related to models
  */
+
 import Schema from './schema'
 import Fields from './fields'
 import Header from './header'
 import Api from '../api'
 import Parser from './parser'
-
-/**
- * Default language for lists of entities
- * @todo Get it from a config file
- * @type {String}
- */
-const DEFAULT_LANGUAGE = 'es_ES'
+import Languages from '../languages'
 
 class Model {
 
@@ -81,7 +76,7 @@ class Model {
         for (let item of results) {
           let parsed = parser.fromModel(item)
           for (let key of keys) {
-            parsed[key] = parsed[key][DEFAULT_LANGUAGE]
+            parsed[key] = parsed[key][Languages.getDefaultId()]
           }
         }
         return results

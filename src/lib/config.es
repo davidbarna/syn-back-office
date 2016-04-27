@@ -19,7 +19,7 @@ class BackOfficeConfig extends Config {
    * @param  {string} env = 'development' Current environment
    * @return {this} Returns singleton instance
   */
-  constructor (env = 'development') {
+  constructor (env = window.env || 'development') {
     if (instance) { return instance }
     super(_.cloneDeep(config), env)
     instance = this
