@@ -60,7 +60,7 @@ class ModelDefaults {
   get (key, attr, metaKey) {
     let conf = (attr.meta && attr.meta[metaKey]) || {}
     conf = _.merge(this.getConfigDefaults(key, attr), conf)
-    conf.label = conf.label || key.toUpperCase()
+    conf.label = conf.label || key
     conf.priority = conf.priority || 0
     conf.key = key
     conf.model = attr.model || attr.collection
