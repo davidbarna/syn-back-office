@@ -18,9 +18,6 @@ export default {
       updatedAt: {
         discard: true
       },
-      language: {
-        discard: true
-      },
       uri: {
         label: 'Url amigable'
       },
@@ -28,43 +25,14 @@ export default {
         label: 'Nombre',
         required: true
       },
-      country: {
-        required: true,
-        labelProp: 'details.name'
-      },
-      city: {
-        required: true,
-        labelProp: 'details.name'
-      },
-      cities: {
-        labelProp: 'details.name'
+      language: {
+        discard: true
       }
     },
     /**
      * Defaults by model
      * @type {Object}
      */
-    models: {
-      language: {
-        id: {
-          discard: false
-        }
-      },
-      country: {
-        name: {
-          label: 'Nombre del pais'
-        }
-      },
-      city: {
-        country: {
-          priority: -1
-        }
-      },
-      service: {
-        hotel: {
-          discard: true
-        }
-      }
-    }
+    models: {}
   }
 }
