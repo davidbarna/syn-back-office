@@ -12,9 +12,6 @@ export default {
      * @type {Object}
      */
     fields: {
-      uri: {
-        discard: true
-      }
     },
     /**
      * Defaults by model

@@ -18,13 +18,6 @@ export default {
       updatedAt: {
         discard: true
       },
-      uri: {
-        label: 'Url amigable'
-      },
-      name: {
-        label: 'Nombre',
-        required: true
-      },
       language: {
         discard: true
       }
