@@ -4,6 +4,9 @@
 import FieldManyToOne from './many-to-one'
 import Languages from '../../languages'
 
+export const ALL = 'LanguageSwitchField.ALL'
+var defaultValue = Languages.getDefaultId()
+
 class LanguageSwitchField extends FieldManyToOne {
 
   constructor (attr, conf) {
@@ -20,7 +23,19 @@ class LanguageSwitchField extends FieldManyToOne {
     return super.getConfig()
       .then((obj) => {
         obj.type = 'select'
-        obj.defaultValue = Languages.getDefaultId()
+        obj.defaultValue = defaultValue
+        obj.templateOptions.labelProp = 'label'
+        obj.expressionProperties = {
+          'templateOptions.label': ($viewValue, $modelValue, scope) => {
+            defaultValue = $modelValue
+            return obj.templateOptions.label
+          }
+        }
+        for (let opt of obj.templateOptions.options) {
+          opt.label = opt.id
+        }
+        obj.templateOptions.options.unshift({ id: ALL, label: '*' })
+
         return obj
       })
   }

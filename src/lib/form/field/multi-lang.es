@@ -1,8 +1,11 @@
 import FieldAbstract from './abstract'
 import Languages from '../../languages'
+import {ALL as ALL_LANGUAGES} from './language-switch'
 import wrapper from '../../angular/formly/wrapper/multi-language-panel'
 
 var languages = null
+
+var currentLanguage = null
 
 class MultiLangField extends FieldAbstract {
 
@@ -34,7 +37,7 @@ class MultiLangField extends FieldAbstract {
                 field.runExpressions()
               }
             }
-            this.currentLanguage = scope.model.system && scope.model.system.language
+            currentLanguage = scope.model.system && scope.model.system.language
           }
         }
 
@@ -64,7 +67,10 @@ class MultiLangField extends FieldAbstract {
       expressionProperties: {
         'templateOptions.disabled': ($viewValue, $modelValue, scope) => {
           this.scopes[languageId] = scope
-          return !(languageId === this.currentLanguage)
+          if (currentLanguage === ALL_LANGUAGES) {
+            return false
+          }
+          return !(languageId === currentLanguage)
         }
       }
     }
