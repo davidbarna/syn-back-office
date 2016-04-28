@@ -2,22 +2,34 @@
  * Config for grids
  */
 export default {
-  /**
-   * Defaults of field config objects
-   * @type {Object}
-   */
-  defaults: {
+  head: {
     /**
-     * Defaults by field name
+     * Defaults of grid head config objects
      * @type {Object}
      */
-    fields: {
-    },
+    defaults: {
+      /**
+       * Defaults by field name
+       * @type {Object}
+       */
+      fields: {
+      },
+      /**
+       * Defaults by model
+       * @type {Object}
+       */
+      models: {
+      }
+    }
+  },
+  cells: {
     /**
-     * Defaults by model
+     * Defaults of grid cells config objects
      * @type {Object}
      */
-    models: {
+    defaults: {
+      fields: {
+      }
     }
   }
 }

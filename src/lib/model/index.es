@@ -4,7 +4,8 @@
 
 import Schema from './schema'
 import Fields from './fields'
-import Header from './header'
+import Header from '../grid/head'
+import Cells from '../grid/cells'
 import Api from '../api'
 import Parser from './parser'
 import Languages from '../languages'
@@ -40,6 +41,23 @@ class Model {
   }
 
   /**
+   * Returns a config object for syn-grid
+   * according to Model's schema
+   * @return {Object} Grids config
+   */
+  getGrid () {
+    return Promise.all([this.findPopulate(), this.getSchema()])
+      .then((results) => {
+        let [data, schema] = results
+        return {
+          head: Header.getFromSchema(this.model, schema.attrs()),
+          cells: Cells.getFromSchema(this.model, schema.attrs()),
+          data: data
+        }
+      })
+  }
+
+  /**
    * Returns a data parser for the model
    * @return {Promise}
    */
@@ -51,16 +69,6 @@ class Model {
       })
   }
 
-  /**
-   * Returns head config for grids component.
-   * @return {Promise}
-   */
-  getHeader () {
-    return this.getSchema()
-      .then((schema) => {
-        return Header.getFromSchema(this.model, schema.attrs())
-      })
-  }
 
   /**
    * Returns a list of options from an API resource

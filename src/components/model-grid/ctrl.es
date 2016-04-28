@@ -15,13 +15,10 @@ class ModelGridCtrl {
     this.config = {}
     this.model = modelName
     this.actions = new Model(modelName)
-    this.actions.findPopulate()
-      .then((items) => {
-        this.config.data = items
-        return this.actions.getHeader()
-      })
-      .then((header) => {
-        this.config.head = header
+
+    this.actions.getGrid()
+      .then((config) => {
+        this.config = config
         this.render({ config: this.config })
       })
   }

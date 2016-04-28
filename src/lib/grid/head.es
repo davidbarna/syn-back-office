@@ -3,7 +3,7 @@
  *
  * Builds grid head config for model grids.
  */
-import Defaults from './defaults'
+import Defaults from '../model/defaults'
 import Config from '../../lib/config'
 import _ from 'lodash'
 
@@ -27,7 +27,7 @@ class ModelHeader {
     if (!gridsDefaults) {
       gridsDefaults = _.merge(
         _.cloneDeep(Config.getInstance().forms.defaults),
-        _.cloneDeep(Config.getInstance().grids.defaults)
+        _.cloneDeep(Config.getInstance().grids.cells.defaults)
       )
     }
 

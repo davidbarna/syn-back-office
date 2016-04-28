@@ -63,7 +63,10 @@ class ModelDefaults {
     conf.label = conf.label || key
     conf.priority = conf.priority || 0
     conf.key = key
+    conf.type = attr.type
     conf.model = attr.model || attr.collection
+    conf.collection = attr.collection
+
 
     return conf
   }
