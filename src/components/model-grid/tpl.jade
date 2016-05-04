@@ -1,1 +1,2 @@
-syn-grid(ng-if="config" options="config")
+syn-grid(ng-if="config.data[0]" options="config")
+div(ng-if="!config.data[0]") No hay ningún elemento.

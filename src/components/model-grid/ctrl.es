@@ -4,6 +4,9 @@
  */
 
 import Model from '../../lib/model'
+import Navigation from '../../lib/nav'
+
+var nav = Navigation.getInstance()
 
 class ModelGridCtrl {
 
@@ -19,6 +22,12 @@ class ModelGridCtrl {
     this.actions.getGrid()
       .then((config) => {
         this.config = config
+
+        this.config.cells.on = {
+          click: (event, key, model) => {
+            nav.go('form', {model: this.model, id: model.id})
+          }
+        }
         this.render({ config: this.config })
       })
   }
