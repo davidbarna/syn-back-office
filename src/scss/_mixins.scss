@@ -1,0 +1,25 @@
+@mixin ellipsis ($max-width){
+  display: inline-block;
+  max-width: $max-width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin columns ($num: 2) {
+  $width: 100% / $num;
+  $gutter: $spacing*2 / $num;
+
+  width: calc(#{$width} - #{$gutter});
+
+  &:nth-child(odd) {
+    float: left;
+    clear: left;
+  }
+
+  &:nth-child(even) {
+    float: right;
+    clear: right;
+  }
+
+}

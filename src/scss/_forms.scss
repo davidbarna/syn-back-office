@@ -1,23 +1,5 @@
-@media #{$large-up} {
-  form > ng-form {
-    @include clearfix;
-    display: block;
-    clear: both;
-
-    & > .formly-field {
-      width: calc(50% - #{$spacing});
-
-      &:nth-child(odd) {
-        float: left;
-        clear: left;
-      }
-
-      &:nth-child(even) {
-        float: right;
-        clear: right;
-      }
-    }
-  }
+.formly-field {
+  margin-bottom: $spacing/2;
 }
 
 .field-multi-language {
@@ -30,5 +12,40 @@
   textarea {
     max-width: 100%;
     min-height: 8em;
+  }
+}
+
+.formly-field-radio {
+  @include clearfix;
+  .radio {
+    margin: $spacing/2;
+    margin-left: 0;
+    float: left;
+  }
+}
+
+.formly-field-multiCheckbox {
+  @include clearfix;
+
+  .checkbox {
+
+    label {
+      width: 100%;
+    }
+
+    margin: $spacing/4 0;
+    @include columns;
+  }
+}
+
+@media #{$large-up} {
+  form > ng-form {
+    @include clearfix;
+    display: block;
+    clear: both;
+
+    & > .formly-field {
+      @include columns;
+    }
   }
 }
