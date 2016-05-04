@@ -6,7 +6,9 @@
 import angular from 'angular'
 import ngFormly from 'angular-formly'
 import ngFormlyBootstrap from 'angular-formly-templates-bootstrap'
+import uiTinyMCE from 'angular-ui-tinymce'
 import wrappers from './wrappers'
+import types from './types'
 
 export default {
   /**
@@ -14,10 +16,13 @@ export default {
    * @return {Object} Angular module instance
    */
   getModule () {
-    return angular.module('syn.backOffice.formly', [ ngFormly, ngFormlyBootstrap ])
+    return angular.module('syn.backOffice.formly', [ ngFormly, ngFormlyBootstrap, 'ui.tinymce' ])
       .config(['formlyConfigProvider', function (formlyConfigProvider) {
         for (let wrapper of wrappers) {
           formlyConfigProvider.setWrapper(wrapper)
+        }
+        for (let type of types) {
+          formlyConfigProvider.setType(type)
         }
       }])
   }
