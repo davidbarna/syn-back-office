@@ -20,6 +20,10 @@ export default {
       },
       language: {
         discard: true
+      },
+      name: {
+        required: true,
+        label: 'Nombre'
       }
     },
     /**
@@ -29,10 +33,11 @@ export default {
     models: {
       language: {
         id: {
-          discard: false
+          discard: false,
+          required: true,
+          maxlength: 5
         }
       }
-
     }
   }
 }
