@@ -35,7 +35,7 @@ export default {
       label: 'Opciones',
       nav: {
         files: {
-          label: 'Archivos',
+          label: 'Archivos multimedia',
           state: states.list.name,
           params: { model: 'mediafile' },
           nav: {
@@ -43,6 +43,18 @@ export default {
               label: '+',
               state: states.form.name,
               params: { model: 'mediafile', id: null }
+            }
+          }
+        },
+        textfiles: {
+          label: 'Archivos de texto',
+          state: states.list.name,
+          params: { model: 'textfile' },
+          nav: {
+            textFileCreation: {
+              label: '+',
+              state: states.form.name,
+              params: { model: 'textfile', id: null }
             }
           }
         },
