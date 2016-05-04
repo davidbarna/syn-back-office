@@ -28,28 +28,21 @@ export default {
               params: { model: 'lounge', id: null }
             }
           }
-        },
-        city: {
-          label: 'Ciudades',
+        }
+      }
+    },
+    options: {
+      label: 'Opciones',
+      nav: {
+        files: {
+          label: 'Archivos',
           state: states.list.name,
-          params: { model: 'city' },
+          params: { model: 'mediafile' },
           nav: {
-            cityCreation: {
+            fileCreation: {
               label: '+',
               state: states.form.name,
-              params: { model: 'city', id: null }
-            }
-          }
-        },
-        country: {
-          label: 'Paises',
-          state: states.list.name,
-          params: { model: 'country' },
-          nav: {
-            countryCreation: {
-              label: '+',
-              state: states.form.name,
-              params: { model: 'country', id: null }
+              params: { model: 'mediafile', id: null }
             }
           }
         },
@@ -106,15 +99,27 @@ export default {
             }
           }
         },
-        files: {
-          label: 'Archivos',
+        country: {
+          label: 'Paises',
           state: states.list.name,
-          params: { model: 'mediafile' },
+          params: { model: 'country' },
           nav: {
-            fileCreation: {
+            countryCreation: {
               label: '+',
               state: states.form.name,
-              params: { model: 'mediafile', id: null }
+              params: { model: 'country', id: null }
+            }
+          }
+        },
+        city: {
+          label: 'Ciudades',
+          state: states.list.name,
+          params: { model: 'city' },
+          nav: {
+            cityCreation: {
+              label: '+',
+              state: states.form.name,
+              params: { model: 'city', id: null }
             }
           }
         }
