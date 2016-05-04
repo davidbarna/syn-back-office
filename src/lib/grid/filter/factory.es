@@ -4,6 +4,7 @@
 import ManyToOne from './many-to-one'
 import ManyToMany from './many-to-many'
 import Text from './text'
+import Boolean from './boolean'
 
 class GridFiltersFactory {
 
@@ -24,6 +25,9 @@ class GridFiltersFactory {
     }
     if (conf.type === 'text') {
       return Text.create(conf)
+    }
+    if (conf.type === 'boolean') {
+      return Boolean.create(conf)
     }
   }
 }
