@@ -9,7 +9,7 @@ import FieldManyToOne from './field/many-to-one'
 import FieldManyToMany from './field/many-to-many'
 import FieldLanguageSwitch from './field/language-switch'
 
-export var String = FieldText
+export var String = FieldString
 export var Text = FieldText
 export var Boolean = FieldBoolean
 export var MultiLang = FieldMultiLang
@@ -24,12 +24,13 @@ export var LanguageSwitch = FieldLanguageSwitch
  * @return {FieldAbstract} Field class
  */
 export var getFromAttribute = function (attr) {
+
   if (attr.multiLanguage) {
     return MultiLang
   } else if (attr.type === 'boolean') {
     return FieldBoolean
   } else if (attr.type === 'text') {
-    return FieldText
+    return Text
   } else if (attr.model) {
     return ManyToOne
   } else if (attr.collection) {
