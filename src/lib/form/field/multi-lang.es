@@ -1,6 +1,7 @@
 import FieldAbstract from './abstract'
+import * as Fields from '../fields'
 import Languages from '../../languages'
-import {ALL as ALL_LANGUAGES} from './language-switch'
+import { ALL as ALL_LANGUAGES } from './language-switch'
 import wrapper from '../../angular/formly/wrapper/multi-language-panel'
 
 var languages = null
@@ -8,6 +9,13 @@ var languages = null
 var currentLanguage = null
 
 class MultiLangField extends FieldAbstract {
+
+  constructor (attr, conf) {
+    super(attr, conf)
+    attr.multiLanguage = false
+    let SubField = Fields.getFromAttribute(attr)
+    this.subField = new SubField(attr, conf)
+  }
 
   getConfig () {
     /**
@@ -19,6 +27,10 @@ class MultiLangField extends FieldAbstract {
     return Languages.get()
       .then((langs) => {
         languages = langs
+        return this.subField.getConfig()
+      })
+      .then((subFieldConfig) => {
+        this.subFieldConfig = subFieldConfig
         return super.getConfig()
       })
       .then((result) => {
@@ -62,9 +74,9 @@ class MultiLangField extends FieldAbstract {
   getSubFieldConfig (parent, languageId) {
     return {
       key: languageId,
-      type: parent.type,
+      type: this.subFieldConfig.type,
+      data: this.subFieldConfig.data,
       templateOptions: {
-        type: 'text',
         placeholder: languageId
       },
       validation: parent.validation,
