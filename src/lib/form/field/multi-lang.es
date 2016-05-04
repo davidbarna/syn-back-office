@@ -26,7 +26,10 @@ class MultiLangField extends FieldAbstract {
           wrapper: wrapper.name,
           className: 'field-multi-language',
           key: result.key,
-          templateOptions: { label: result.templateOptions.label },
+          templateOptions: {
+            label: result.templateOptions.label,
+            required: result.templateOptions.required
+          },
           fieldGroup: [],
           hideExpression: ($viewValue, $modelValue, scope) => {
             // Run expressions must be run manually because
@@ -64,17 +67,31 @@ class MultiLangField extends FieldAbstract {
         type: 'text',
         placeholder: languageId
       },
+      validation: parent.validation,
       expressionProperties: {
+        'validation.show': parent.expressionProperties['validation.show'],
         'templateOptions.disabled': ($viewValue, $modelValue, scope) => {
           this.scopes[languageId] = scope
-          if (currentLanguage === ALL_LANGUAGES) {
-            return false
-          }
-          return !(languageId === currentLanguage)
+          return !isActiveLanguage(languageId)
+        },
+        'templateOptions.required': ($viewValue, $modelValue, scope) => {
+          return isActiveLanguage(languageId) && parent.templateOptions.required
         }
       }
     }
   }
+}
+
+/**
+ * Tells is given language is active for edition
+ * @param  {string}  languageId
+ * @return {Boolean}
+ */
+var isActiveLanguage = function (languageId) {
+  if (currentLanguage === ALL_LANGUAGES) {
+    return true
+  }
+  return (languageId === currentLanguage)
 }
 
 export default MultiLangField

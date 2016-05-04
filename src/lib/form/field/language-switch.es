@@ -11,7 +11,7 @@ class LanguageSwitchField extends FieldManyToOne {
 
   constructor (attr, conf) {
     super(attr, conf)
-    defaultValue = Languages.getDefaultId()
+    defaultValue = defaultValue || Languages.getDefaultId()
     this.model = conf.collection
   }
 
@@ -26,6 +26,7 @@ class LanguageSwitchField extends FieldManyToOne {
         obj.type = 'select'
         obj.defaultValue = defaultValue
         obj.templateOptions.labelProp = 'label'
+        obj.templateOptions.label = 'Idioma de edición'
         obj.expressionProperties = {
           'templateOptions.label': ($viewValue, $modelValue, scope) => {
             defaultValue = $modelValue
