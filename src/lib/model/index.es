@@ -69,7 +69,6 @@ class Model {
       })
   }
 
-
   /**
    * Returns a list of options from an API resource
    * @return {Promise}

@@ -5,12 +5,13 @@ import FieldManyToOne from './many-to-one'
 import Languages from '../../languages'
 
 export const ALL = 'LanguageSwitchField.ALL'
-var defaultValue = Languages.getDefaultId()
+var defaultValue = null
 
 class LanguageSwitchField extends FieldManyToOne {
 
   constructor (attr, conf) {
     super(attr, conf)
+    defaultValue = Languages.getDefaultId()
     this.model = conf.collection
   }
 

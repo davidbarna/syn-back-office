@@ -55,6 +55,10 @@ var getLanguageField = function (defaults) {
   return field
 }
 
+var hasMultilanguageField = function (model, schema) {
+  return config.app.languages.model !== model
+}
+
 /**
  * Returns a full fields config for a model schema
  * @param  {string} model  Name of the model
@@ -67,7 +71,9 @@ var getFields = function (model, schema) {
   let promises = []
 
   // Default language switch field is added into any form
-  promises.push(getLanguageField(defaults).getConfig())
+  if (hasMultilanguageField(model, schema)) {
+    promises.push(getLanguageField(defaults).getConfig())
+  }
 
   for (let conf of configs) {
     let attr = schema[conf.key]

@@ -1,31 +1,32 @@
 form(
   ng-if='!!formly.model' 
-  ng-submit='formly.onSubmit(formly.form)', 
+  ng-submit='formly.onSubmit(formly.form, formly.options)', 
   novalidate=''
 )
   formly-form(
     model='formly.model'
     fields='formly.fields'
     form='formly.form'
+    options='formly.options'
   )
   .btn-group
   button.btn.btn-primary(type='submit') Submit
   | &nbsp;
-  button.btn.btn-danger(type="button" ng-click="formly.onDelete(formly.form)") Delete
-
-//- Debug info
-form()
-  caption Debugging::::::::
-  label
-    input(type='radio', ng-model='debug.panel', value='model')
-    | Model
-  label
-    input(type='radio', ng-model='debug.panel', value='fields')
-    | Fields
-  label
-    input(type='radio', ng-model='debug.panel', value='form')
-    | Form
-
-pre(ng-if="debug.panel==='fields'") {{ formly.fields | json }}
-pre(ng-if="debug.panel==='model'") {{ formly.model | json }}
-pre(ng-if="debug.panel==='form'") {{ formly.form | json }}
+  button.btn.btn-danger(type="button" ng-if="editMode" ng-click="formly.onDelete(formly.form)") Delete
+//- 
+//- //- Debug info
+//- form()
+//-   caption Debugging::::::::
+//-   label
+//-     input(type='radio', ng-model='debug.panel', value='model')
+//-     | Model
+//-   label
+//-     input(type='radio', ng-model='debug.panel', value='fields')
+//-     | Fields
+//-   label
+//-     input(type='radio', ng-model='debug.panel', value='form')
+//-     | Form
+//- 
+//- pre(ng-if="debug.panel==='fields'") {{ formly.fields | json }}
+//- pre(ng-if="debug.panel==='model'") {{ formly.model | json }}
+//- pre(ng-if="debug.panel==='form'") {{ formly.form | json }}

@@ -26,6 +26,13 @@ export default {
      * Defaults by model
      * @type {Object}
      */
-    models: {}
+    models: {
+      language: {
+        id: {
+          discard: false
+        }
+      }
+
+    }
   }
 }

@@ -4,8 +4,11 @@
  */
 
 import Model from '../../lib/model'
+import Navigation from '../../lib/nav'
 
 var alert = window.alert
+
+var nav = Navigation.getInstance()
 
 class ModelFormCtrl {
 
@@ -13,6 +16,7 @@ class ModelFormCtrl {
     this.scope = scope
     this.modelName = null
     this.form = null
+    this.formOptions = null
   }
 
   setModel (modelName, id) {
@@ -44,14 +48,18 @@ class ModelFormCtrl {
 
   update () {
     this.params = this.parser.valuesFromModel(this.model)
+    this.scope.editMode = this.editionMode
     this.scope.formly = {
       model: this.params,
       fields: this.fields,
-      onSubmit: (form) => {
+      onSubmit: (form, options) => {
         this.form = form
+        this.formOptions = options
         this.submit()
       },
-      onDelete: () => {
+      onDelete: (form, options) => {
+        this.form = form
+        this.formOptions = options
         this.delete()
       }
     }
@@ -67,15 +75,14 @@ class ModelFormCtrl {
   }
 
   reset () {
-    this.setModel(this.modelName)
+    this.formOptions.resetModel()
   }
 
   delete () {
     if (window.confirm('Are you sure?')) {
       this.actions.delete(this.model.id)
         .then(() => {
-          alert('Deleted!')
-          this.reset()
+          nav.go('list', {model: this.modelName})
         })
         .catch((e) => {
           alert('Error: ' + e.message)
@@ -103,6 +110,9 @@ class ModelFormCtrl {
     promise
       .then((response) => {
         alert('Success: ' + response.id)
+        if (!this.editionMode) {
+          this.formOptions.resetModel()
+        }
       })
       .catch((e) => {
         alert('Error: ' + e.message)
