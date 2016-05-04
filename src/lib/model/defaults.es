@@ -67,7 +67,6 @@ class ModelDefaults {
     conf.model = attr.model || attr.collection
     conf.collection = attr.collection
 
-
     return conf
   }
 

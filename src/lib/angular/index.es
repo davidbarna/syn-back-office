@@ -44,7 +44,7 @@ export default {
        * Configure navigation service to make it work
        * with angular ui router
        */
-      .run(['$state', '$rootScope' , function ($state, $rootScope) {
+      .run(['$state', '$rootScope', function ($state, $rootScope) {
         let nav = Navigation.getInstance()
 
         // Listen to nav changes to send state to ui-router
