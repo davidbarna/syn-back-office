@@ -6,7 +6,7 @@
 import angular from 'angular'
 import ngFormly from 'angular-formly'
 import ngFormlyBootstrap from 'angular-formly-templates-bootstrap'
-import uiTinyMCE from 'angular-ui-tinymce'
+// import * as uiTinyMCE from 'angular-ui-tinymce'
 import wrappers from './wrappers'
 import types from './types'
 

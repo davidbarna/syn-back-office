@@ -24,7 +24,6 @@ export var LanguageSwitch = FieldLanguageSwitch
  * @return {FieldAbstract} Field class
  */
 export var getFromAttribute = function (attr) {
-
   if (attr.multiLanguage) {
     return MultiLang
   } else if (attr.type === 'boolean') {

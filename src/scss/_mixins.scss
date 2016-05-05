@@ -1,4 +1,4 @@
-@mixin ellipsis ($max-width){
+@mixin ellipsis ( $max-width ) {
   display: inline-block;
   max-width: $max-width;
   overflow: hidden;
@@ -6,9 +6,9 @@
   white-space: nowrap;
 }
 
-@mixin columns ($num: 2) {
+@mixin columns ( $num: 2 ) {
   $width: 100% / $num;
-  $gutter: $spacing*2 / $num;
+  $gutter: $spacing * 2 / $num;
 
   width: calc(#{$width} - #{$gutter});
 

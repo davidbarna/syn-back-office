@@ -1,5 +1,5 @@
 .formly-field {
-  margin-bottom: $spacing/2;
+  margin-bottom: $spacing / 2;
 }
 
 .field-multi-language {
@@ -18,9 +18,9 @@
 .formly-field-radio {
   @include clearfix;
   .radio {
-    margin: $spacing/2;
-    margin-left: 0;
     float: left;
+    margin: $spacing / 2;
+    margin-left: 0;
   }
 }
 
@@ -33,7 +33,7 @@
       width: 100%;
     }
 
-    margin: $spacing/4 0;
+    margin: $spacing / 4 0;
     @include columns;
   }
 }
