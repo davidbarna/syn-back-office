@@ -8,7 +8,7 @@ export default {
       version: '0.0.0',
       languages: {
         model: 'language',
-        default: 'es-mx'
+        default: 'es-es'
       }
     },
     api: {
