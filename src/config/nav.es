@@ -28,6 +28,18 @@ export default {
               params: { model: 'lounge', id: null }
             }
           }
+        },
+        space: {
+          label: 'Espacios de hotel',
+          state: states.list.name,
+          params: { model: 'space' },
+          nav: {
+            spaceCreation: {
+              label: '+',
+              state: states.form.name,
+              params: { model: 'space', id: null }
+            }
+          }
         }
       }
     },
