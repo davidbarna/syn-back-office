@@ -22,7 +22,41 @@ class ModelGridCtrl {
     this.actions.getGrid()
       .then((config) => {
         this.config = config
-
+        this.config.head.gridActions = { label: 'Actions' }
+        this.config.cells.gridActions = {
+          buttons: {
+            edit: {
+              classes: [ 'btn', 'btn-default', 'btn-xs' ],
+              content: 'Editar',
+              on: {
+                click: (event, value, model) => {
+                  nav.go('form', {model: this.model, id: model.id})
+                  event.stopPropagation()
+                }
+              }
+            },
+            // delete: {
+            //   classes: [ 'btn', 'btn-default', 'btn-xs' ],
+            //   content: 'Borrar',
+            //   on: {
+            //     click: (event, value, model) => {
+            //       nav.go('copy', {model: this.model, id: model.id})
+            //       event.stopPropagation()
+            //     }
+            //   }
+            // },
+            copy: {
+              classes: [ 'btn', 'btn-default', 'btn-xs' ],
+              content: 'Copiar',
+              on: {
+                click: (event, value, model) => {
+                  nav.go('copy', {model: this.model, id: model.id})
+                  event.stopPropagation()
+                }
+              }
+            }
+          }
+        }
         this.config.cells.on = {
           click: (event, key, model) => {
             nav.go('form', {model: this.model, id: model.id})

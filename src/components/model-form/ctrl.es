@@ -19,6 +19,11 @@ class ModelFormCtrl {
     this.formOptions = null
   }
 
+  setCopyMode (value) {
+    this.copyMode = value
+    return this
+  }
+
   setModel (modelName, id) {
     this.modelName = modelName
     this.model = {}
@@ -47,6 +52,10 @@ class ModelFormCtrl {
   }
 
   update () {
+    if (this.copyMode) {
+      this.editionMode = false
+      delete this.model.id
+    }
     this.params = this.parser.valuesFromModel(this.model)
     this.scope.editMode = this.editionMode
     this.scope.formly = {
@@ -70,10 +79,6 @@ class ModelFormCtrl {
     return this.form.$valid
   }
 
-  isPristine () {
-    return this.form.$pristine
-  }
-
   reset () {
     this.formOptions.resetModel()
   }
@@ -93,10 +98,6 @@ class ModelFormCtrl {
   submit () {
     if (!this.isValid()) {
       alert('Form is invalid. Please review.')
-      return
-    }
-    if (this.isPristine()) {
-      alert('Form was not edited. No need to submit.')
       return
     }
 

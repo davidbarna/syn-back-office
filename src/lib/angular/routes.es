@@ -26,6 +26,12 @@ routes[states.form.name] = {
   template: '<syn-model-form model="{{model}}" id="{{modelId}}" />'
 }
 
+routes[states.copy.name] = {
+  parent: states.model.name,
+  url: states.copy.url,
+  template: '<syn-model-form model="{{model}}" id="{{modelId}}" copy="" />'
+}
+
 routes[states.list.name] = {
   parent: states.model.name,
   url: states.list.url,

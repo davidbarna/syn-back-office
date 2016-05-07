@@ -10,7 +10,7 @@ form(
     options='formly.options'
   )
   .btn-group
-  button.btn.btn-primary(type='submit' ng-disabled="formly.form.$pristine || formly.form.$invalid") Submit
+  button.btn.btn-primary(type='submit' ng-disabled="formly.form.$invalid") Submit
   | &nbsp;
   button.btn.btn-danger(type="button" ng-if="editMode" ng-click="formly.onDelete(formly.form)") Delete
 //- 
