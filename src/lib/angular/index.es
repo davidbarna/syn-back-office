@@ -11,6 +11,7 @@ import backOffice from '../../components/back-office/ng-directive'
 import modelForm from '../../components/model-form/ng-directive'
 import modelGrid from '../../components/model-grid/ng-directive'
 import Navigation from '../nav'
+import fileUpload from '../../components/file-upload/ng-directive'
 
 export default {
   /**
@@ -29,6 +30,7 @@ export default {
       .directive('synBackOffice', backOffice)
       .directive('synModelForm', modelForm)
       .directive('synModelGrid', modelGrid)
+      .directive('synFileUpload', fileUpload)
 
       // Routing config with ui-router
       .config([

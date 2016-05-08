@@ -12,11 +12,12 @@ export default {
       }
     },
     api: {
-      url: 'http://localhost:1337/api/v1',
+      url: 'http://localhost:1337',
       resource: {
-        schema: '/:model/schema',
-        form: '/:model/form/process',
-        rest: '/:model/:modelId'
+        schema: '/api/v1/:model/schema',
+        form: '/api/v1/:model/form/process',
+        rest: '/api/v1/:model/:modelId',
+        upload: '/back/upload'
       }
     },
     forms: forms,

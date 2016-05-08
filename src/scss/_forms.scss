@@ -38,6 +38,27 @@
   }
 }
 
+.field-many-to-many-values {
+  @include clearfix;
+
+  display: block;
+  clear: both;
+
+  .formly-field {
+    @include columns;
+
+    .form-group {
+      margin: 0;
+      font-size: 90%;
+    }
+
+    .form-control {
+      font-size: inherit;
+    }
+
+  }
+}
+
 @media #{$large-up} {
   form > ng-form {
     @include clearfix;

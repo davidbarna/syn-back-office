@@ -1,0 +1,71 @@
+.field-file-upload {
+  width: 100%;
+
+  .control-label {
+    width: 100%;
+  }
+
+  .fileinput-button {
+    box-sizing: border-box;
+    width: 100%;
+    padding: $spacing;
+    background: #fff;
+    border: 2px dashed #0087f7;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid #0087f7;
+    }
+  }
+
+  &.syn-file-upload--dragging {
+
+    .fileinput-button {
+      border: 2px solid #0087f7;
+    }
+  }
+
+  div.table {
+    display: table;
+
+    .file-row {
+      display: table-row;
+
+      & > div {
+        display: table-cell;
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+        padding: 8px;
+      }
+    }
+
+    .file-row:nth-child(odd) {
+      background: #f9f9f9;
+    }
+  }
+
+  .previews {
+
+    .file-row.dz-success {
+
+      .start, .cancel {
+        display: none;
+      }
+
+      .progress {
+        opacity: 0;
+        transition: opacity .3s linear;
+      }
+
+      .delete {
+        display: block;
+      }
+
+    }
+
+    .file-row .delete {
+      display: none;
+    }
+  }
+}

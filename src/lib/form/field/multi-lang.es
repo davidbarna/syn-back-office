@@ -34,6 +34,7 @@ class MultiLangField extends FieldAbstract {
         return super.getConfig()
       })
       .then((result) => {
+        var originHideExpression = result.hideExpression
         let obj = {
           wrapper: wrapper.name,
           className: 'field-multi-language',
@@ -53,6 +54,8 @@ class MultiLangField extends FieldAbstract {
               }
             }
             currentLanguage = scope.model.system && scope.model.system.language
+
+            return originHideExpression($viewValue, $modelValue, scope)
           }
         }
 

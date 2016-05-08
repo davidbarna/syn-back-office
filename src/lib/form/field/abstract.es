@@ -32,6 +32,12 @@ class FieldAbstract {
         templateOptions: {
           required: this.required,
           label: this.label
+        },
+        hideExpression: ($viewValue, $modelValue, scope) => {
+          if (!this.conf.showOn) {
+            return false
+          }
+          return !(scope.model[this.conf.showOn.key] === this.conf.showOn.value)
         }
       })
     })

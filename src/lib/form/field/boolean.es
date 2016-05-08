@@ -20,6 +20,7 @@ class BooleanField extends FieldAbstract {
         return obj
       })
   }
+
 }
 
 export default BooleanField

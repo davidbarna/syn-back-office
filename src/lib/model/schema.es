@@ -19,7 +19,6 @@ const TRANS_PROP = 'language'
 
 var loadedSchemas = {}
 
-
 class ModelSchema {
 
   constructor () {
@@ -168,9 +167,8 @@ var mergeSchema = (schema, originModel, modelKey, model) => {
  * @return {Promise}
  */
 var getSchema = (model) => {
-
   if (loadedSchemas[model]) {
-    return new Promise(function(resolve) { resolve(loadedSchemas[model]) })
+    return new Promise(function (resolve) { resolve(loadedSchemas[model]) })
   }
   return Api.schema(model)
     .then((attributes) => {

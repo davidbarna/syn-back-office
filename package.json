@@ -13,6 +13,7 @@
     "bootstrap": "3.3.6",
     "bootstrap-sass": "3.3.6",
     "gulp": "3.9.1",
+    "dropzone": "4.3.0",
     "lodash": "4.11.1",
     "syn-core": "~1",
     "syn-grids": "~0",

@@ -1,0 +1,14 @@
+.file-row
+  div
+    span.preview
+      img(data-dz-thumbnail='')
+  div
+    p.name(data-dz-name='')
+    strong.error.text-danger(data-dz-errormessage='')
+  div
+    p.size(data-dz-size='')
+    .progress.progress-striped.active(role='progressbar', aria-valuemin='0', aria-valuemax='100', aria-valuenow='0')
+      .progress-bar.progress-bar-success(style='width:0%;', data-dz-uploadprogress='')
+  div
+    button.btn.btn-danger.delete(type="button", data-dz-remove='')
+      span Delete
