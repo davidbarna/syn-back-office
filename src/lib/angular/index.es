@@ -4,12 +4,14 @@
 import angular from 'angular'
 import uiRouter from 'angular-ui-router'
 import synUI from 'syn-ui'
-import synGrids from 'syn-grids'
+import ngTable from './ngTable/ng-table'
+// import synGrids from 'syn-grids'
 import synFormly from './formly'
 import routes from './routes'
 import backOffice from '../../components/back-office/ng-directive'
 import modelForm from '../../components/model-form/ng-directive'
-import modelGrid from '../../components/model-grid/ng-directive'
+// import modelGrid from '../../components/model-grid/ng-directive'
+import modelGrid from '../../components/model-grid-ng-table/ng-directive'
 import Navigation from '../nav'
 import fileUpload from '../../components/file-upload/ng-directive'
 
@@ -21,8 +23,9 @@ export default {
   getModule () {
     return angular.module('syn.backOffice', [
       uiRouter,
+      'ngTable',
       synUI.angular.getModule().name,
-      synGrids.angular.getModule().name,
+      // synGrids.angular.getModule().name,
       synFormly.getModule().name
     ])
 

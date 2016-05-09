@@ -1,10 +1,11 @@
 html
   head
     link( rel="stylesheet" type="text/css" href="/index.css" )
+    link( rel="stylesheet" type="text/css" href="https://rawgit.com/esvit/ng-table/master/dist/ng-table.min.css" )
   body
     ui-view
     script(type='text/javascript') window.env = '#{env}'
-    script(type='text/javascript', src='//cdn.tinymce.com/4/tinymce.min.js')
+    //- script(type='text/javascript', src='//cdn.tinymce.com/4/tinymce.min.js')
     script(type='text/javascript', src='/index.bundle.js')
     script(type='text/javascript').
       angular.bootstrap( document.body, [ syn.bo.angular.getModule().name ] )
