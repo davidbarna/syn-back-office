@@ -105,6 +105,28 @@ export default {
               params: { model: 'service', id: null }
             }
           }
+        },
+        brand: {
+          label: 'Marcas',
+          state: states.list.name,
+          params: { model: 'brand' },
+          nav: {
+            brandCreation: {
+              label: '+',
+              state: states.form.name,
+              params: { model: 'brand', id: null }
+            }
+          }
+        }
+      }
+    },
+    web: {
+      label: 'Web',
+      nav: {
+        home: {
+          label: 'Home',
+          state: states.form.name,
+          params: { model: 'page', id: 1 }
         }
       }
     },
