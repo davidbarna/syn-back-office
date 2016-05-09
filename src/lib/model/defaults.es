@@ -15,7 +15,7 @@ class ModelDefaults {
    */
   constructor (model, base) {
     this.model = model
-    this.base = base
+    this.base = _.cloneDeep(base)
     this.base.models = this.base.models || {}
     this.base.fields = this.base.fields || {}
     this.base.models[model] = this.base.models[model] || {}
