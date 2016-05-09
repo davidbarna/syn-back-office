@@ -59,7 +59,7 @@ class ModelGridCtrl {
           this.tableParams.reload()
         })
         .catch((e) => {
-          alert('Error: ' + e.message)
+          window.alert('Error: ' + e.message)
         })
     }
   }

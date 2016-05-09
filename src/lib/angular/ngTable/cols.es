@@ -14,7 +14,6 @@ export default {
       let head = config.head[key]
       let cell = config.cells[key]
 
-
       let col = {
         field: head.key,
         title: head.label,
@@ -30,10 +29,9 @@ export default {
         let searchKey = head.key
         let searchType = head.searchType || 'text'
 
-        if( head.labelProp ) {
+        if (head.labelProp) {
           searchKey += '.' + head.labelProp
         }
-
 
         col.filter = { [searchKey]: searchType }
       }

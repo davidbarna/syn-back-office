@@ -1,6 +1,7 @@
 table.table.table-condensed.table-bordered.table-striped(ng-table-dynamic='ctrl.tableParams with ctrl.tableCols')
   tr(ng-repeat='row in $data' ng-click="ctrl.editRow($event, row)")
-    td(ng-repeat='col in $columns') {{row[col.field]}}
+    td(ng-repeat='col in $columns')
+      span(ng-bind-html="col.getValue(row,col)")
       span(ng-if="col.field === 'actions'")
         button.btn.btn-default.btn-sm(ng-click="ctrl.copyRow($event, row)")
           span.glyphicon.glyphicon-copy
