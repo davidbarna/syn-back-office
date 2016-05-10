@@ -40,7 +40,7 @@ export default {
     }
 
     cols.push({
-      title: 'Acciones',
+      title: '',
       field: 'actions',
       show: true
     })

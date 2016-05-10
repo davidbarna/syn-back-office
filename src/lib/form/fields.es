@@ -7,6 +7,8 @@ import FieldSelect from './field/select'
 import FieldBoolean from './field/boolean'
 import FieldMultiLang from './field/multi-lang'
 import FieldManyToOne from './field/many-to-one'
+import FieldGallery from './field/gallery'
+import FieldGallerySingle from './field/gallery-single'
 import FieldManyToMany from './field/many-to-many'
 import FieldManyToManyValues from './field/many-to-many-values'
 import FieldLanguageSwitch from './field/language-switch'
@@ -18,6 +20,8 @@ export var Select = FieldSelect
 export var Boolean = FieldBoolean
 export var MultiLang = FieldMultiLang
 export var ManyToOne = FieldManyToOne
+export var Gallery = FieldGallery
+export var GallerySingle = FieldGallerySingle
 export var ManyToMany = FieldManyToMany
 export var ManyToManyValues = FieldManyToManyValues
 export var LanguageSwitch = FieldLanguageSwitch
@@ -36,6 +40,10 @@ export var getFromAttribute = function (attr) {
     return MultiLang
   } else if (attr.meta.field.fieldType === 'select') {
     return Select
+  } else if (attr.collection === 'mediafile') {
+    return Gallery
+  } else if (attr.model === 'mediafile') {
+    return GallerySingle
   } else if (attr.meta.relationFields) {
     return ManyToManyValues
   } else if (attr.meta.isFile === true) {

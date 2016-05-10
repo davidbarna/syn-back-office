@@ -3,6 +3,7 @@
  */
 import angular from 'angular'
 import uiRouter from 'angular-ui-router'
+import uiBootstrap from 'angular-ui-bootstrap'
 import ngSanitize from 'angular-sanitize'
 import synUI from 'syn-ui'
 import ngTable from './ngTable/ng-table'
@@ -11,6 +12,7 @@ import synFormly from './formly'
 import routes from './routes'
 import backOffice from '../../components/back-office/ng-directive'
 import modelForm from '../../components/model-form/ng-directive'
+import gallerySelector from '../../components/gallery-selector/ng-directive'
 // import modelGrid from '../../components/model-grid/ng-directive'
 import modelGrid from '../../components/model-grid-ng-table/ng-directive'
 import Navigation from '../nav'
@@ -26,6 +28,7 @@ export default {
   getModule () {
     return angular.module('syn.backOffice', [
       uiRouter,
+      uiBootstrap,
       ngSanitize,
       'ngTable',
       synUI.angular.getModule().name,
@@ -38,6 +41,7 @@ export default {
       .directive('synModelForm', modelForm)
       .directive('synModelGrid', modelGrid)
       .directive('synFileUpload', fileUpload)
+      .directive('synGallerySelector', gallerySelector)
 
       // Routing config with ui-router
       .config([
