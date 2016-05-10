@@ -54,7 +54,7 @@ class GalleryField extends FieldManyToMany {
             <img src="{{to.getImagePath(file)}}" />
           </li>
         </ul>
-        <button class="btn btn-primary btn-s" type="button" ng-click="addImages(model.${this.conf.key})">Escoger imágenes</button>
+        <button class="btn btn-primary btn-xs" type="button" ng-click="addImages(model.${this.conf.key})">Escoger imágenes</button>
         </label>`
         return obj
       })
