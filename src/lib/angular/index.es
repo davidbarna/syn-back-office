@@ -6,7 +6,9 @@ import uiRouter from 'angular-ui-router'
 import uiBootstrap from 'angular-ui-bootstrap'
 import ngSanitize from 'angular-sanitize'
 import synUI from 'syn-ui'
+import synAuth from 'syn-auth'
 import ngTable from './ngTable/ng-table'
+
 // import synGrids from 'syn-grids'
 import synFormly from './formly'
 import routes from './routes'
@@ -32,6 +34,7 @@ export default {
       ngSanitize,
       'ngTable',
       synUI.angular.getModule().name,
+      synAuth.angular.getModule().name,
       // synGrids.angular.getModule().name,
       synFormly.getModule().name
     ])

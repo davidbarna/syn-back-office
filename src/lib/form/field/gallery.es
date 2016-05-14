@@ -51,7 +51,7 @@ class GalleryField extends FieldManyToMany {
           {{to.required ? '*' : ''}}
         <ul class="syn-gallery-selector_selected">
           <li ng-repeat="file in to.options" ng-if="model.${this.conf.key}.indexOf(file.id) !== -1" >
-            <img src="{{to.getImagePath(file)}}" />
+            <img ng-src="{{to.getImagePath(file)}}" />
           </li>
         </ul>
         <button class="btn btn-primary btn-xs" type="button" ng-click="addImages(model.${this.conf.key})">Escoger imágenes</button>

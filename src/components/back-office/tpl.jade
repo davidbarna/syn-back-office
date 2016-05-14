@@ -1,12 +1,15 @@
-.syn-bo-layout
+syn-auth-login-form( ng-if="!userLogged" url="loginUrl" channel="{{ loginChannel }}")
+  img(ng-src="{{logo}}")
+.syn-bo-layout(ng-if="userLogged")
   syn-app-header.syn-bo-layout_header
     logo 
-      h1 BackOffice
+      img(ng-src="{{logo}}")
 
 syn-nav-stack.syn-bo-layout_aside(
+  ng-if="userLogged"
   options="menuConfig" 
-  channel="{{ channel }}"
+  channel="{{ menuChannel }}"
   compact
 )
-.syn-bo-layout_main
+.syn-bo-layout_main(ng-if="userLogged")
   ui-view

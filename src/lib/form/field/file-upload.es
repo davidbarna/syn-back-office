@@ -28,7 +28,7 @@ class FileUpload extends FieldAbstract {
           />
           <ul class="syn-gallery-selector_selected" ng-if="model">
             <li>
-              <img src="{{ to.getImagePath(model) }}" />
+              <img ng-src="{{ to.getImagePath(model) }}" />
             </li>
           </ul>
         </label>`

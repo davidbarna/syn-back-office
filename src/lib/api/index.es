@@ -5,8 +5,10 @@
  * @todo Set a cache manager
  */
 import Config from '../../lib/config'
+import synAuth from 'syn-auth'
 
 var conf = Config.getInstance().api
+var gSession = synAuth.session.global
 
 class Api {
 
@@ -107,6 +109,8 @@ var getData = (url, params = {}) => {
  * @return {Object}
  */
 var processRequestParams = function (params) {
+  params.headers = params.headers || {}
+  params.headers.access_token = gSession.get().token()
   if (typeof params.body === 'object') {
     params.body = JSON.stringify(params.body)
   }

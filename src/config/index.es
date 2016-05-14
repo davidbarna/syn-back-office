@@ -5,6 +5,7 @@ export default {
   production: {
     app: {
       name: 'BackOffice',
+      logo: 'imgs/logo-example.svg',
       version: '0.0.0',
       languages: {
         model: 'language',
@@ -13,11 +14,13 @@ export default {
     },
     api: {
       url: 'http://localhost:1337',
+      images: '/uploads',
       resource: {
         schema: '/api/v1/:model/schema',
         form: '/api/v1/:model/form/process',
         rest: '/api/v1/:model/:modelId',
-        upload: '/back/upload'
+        upload: '/back/upload',
+        login: '/openback/login'
       }
     },
     forms: forms,

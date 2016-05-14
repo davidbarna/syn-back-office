@@ -1,8 +1,9 @@
-$c-brand: #3cc;
+$c-brand: #69c;
 
 @import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "../node_modules/syn-ui/src/scss/_index.scss";
 @import "../node_modules/syn-grids/src/scss/_index.scss";
+@import "../node_modules/syn-auth/src/scss/_index.scss";
 @import "_mixins.scss";
 @import "_layout.scss";
 @import "_forms.scss";

@@ -1,9 +1,12 @@
 import Config from '../../lib/config'
 import Dropzone from 'dropzone'
+import synAuth from 'syn-auth'
 
 var config = null
 
 var instances = {}
+
+var gSession = synAuth.session.global
 
 const DRAG_CLASS = 'syn-file-upload--dragging'
 
@@ -27,6 +30,9 @@ class FileUploadCtrl {
     this.dropzone = null
     this.dropzoneConfig = {
       url: config.api.url + config.api.resource.upload,
+      headers: {
+        'access_token': gSession.get().token()
+      },
       maxFilesize: 2,
       thumbnailWidth: 80,
       thumbnailHeight: 80,
