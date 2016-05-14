@@ -1,7 +1,7 @@
 .syn-gallery-selector
   ul.syn-gallery-selector_selected
     li(ng-repeat='id in ctrl.selected') 
-      img(src="{{ ctrl.getImageUrl(id) }}")
+      img(ng-src="{{ ctrl.getImageUrl(id) }}")
   table.table.table-condensed.table-bordered.table-striped(ng-table-dynamic='ctrl.tableParams with ctrl.tableCols')
     tr(ng-repeat='row in $data' ng-class="{selected: ctrl.isSelected(row) }" ng-click="ctrl.toggleSelection(row)")
       td(ng-repeat='col in $columns' )

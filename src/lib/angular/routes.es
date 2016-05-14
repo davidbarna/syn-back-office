@@ -17,7 +17,7 @@ routes[states.model.name] = {
       $scope.modelId = $stateParams.id
     }
   ],
-  template: '<h1>{{ model }}</h1><ui-view />'
+  template: '<h1></h1><ui-view />'
 }
 
 routes[states.form.name] = {

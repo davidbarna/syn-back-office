@@ -27,7 +27,7 @@ class FileUpload extends FieldAbstract {
             max-files="${maxFiles}"
           />
           <ul class="syn-gallery-selector_selected" ng-if="model">
-            <li>
+            <li ng-if="model.path">
               <img ng-src="{{ to.getImagePath(model) }}" />
             </li>
           </ul>
