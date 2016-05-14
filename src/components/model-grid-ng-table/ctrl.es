@@ -4,6 +4,7 @@
  */
 
 import _ from 'lodash'
+import swal from 'sweetalert'
 import Model from '../../lib/model'
 import Navigation from '../../lib/nav'
 import ngTableCols from '../../lib/angular/ngTable/cols'
@@ -59,7 +60,7 @@ class ModelGridCtrl {
           this.tableParams.reload()
         })
         .catch((e) => {
-          window.alert('Error: ' + e.message)
+          swal('Error', e.message, 'error')
         })
     }
   }

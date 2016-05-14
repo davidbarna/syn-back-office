@@ -3,10 +3,9 @@
  * Builds a form to edit/create a model
  */
 
+import swal from 'sweetalert'
 import Model from '../../lib/model'
 import Navigation from '../../lib/nav'
-
-var alert = window.alert
 
 var nav = Navigation.getInstance()
 
@@ -47,7 +46,7 @@ class ModelFormCtrl {
         this.update()
       })
       .catch((e) => {
-        window.alert('Error: ' + e.message)
+        swal('Error', e.message, 'error')
       })
   }
 
@@ -90,14 +89,14 @@ class ModelFormCtrl {
           nav.go('list', {model: this.modelName})
         })
         .catch((e) => {
-          alert('Error: ' + e.message)
+          swal('Error', e.message, 'error')
         })
     }
   }
 
   submit () {
     if (!this.isValid()) {
-      alert('Form is invalid. Please review.')
+      swal('Formulario inválido', 'Revise los campos, por favor.', 'warning')
       return
     }
 
@@ -110,13 +109,18 @@ class ModelFormCtrl {
 
     promise
       .then((response) => {
-        alert('Success: ' + response.id)
+        swal({
+          title: "¡Guardado!",
+          type: 'success',
+          timer: 1000
+        });
+
         if (!this.editionMode) {
           this.formOptions.resetModel()
         }
       })
       .catch((e) => {
-        alert('Error: ' + e.message)
+        swal('Error', e.message, 'error')
       })
   }
 }
