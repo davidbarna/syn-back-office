@@ -55,7 +55,14 @@
     .form-control {
       font-size: inherit;
     }
+  }
+}
 
+.bk-action-buttons {
+  white-space: nowrap;
+
+  .btn {
+    margin-right: 5px;
   }
 }
 

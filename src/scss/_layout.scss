@@ -21,6 +21,12 @@ $_aside-width: 200px;
   }
 }
 
+.bk-create-button {
+  float: right;
+  margin-top: -50px;
+}
+
+
 // Layout for mobile
 @media #{$small-only} {
   .syn-bo-layout {

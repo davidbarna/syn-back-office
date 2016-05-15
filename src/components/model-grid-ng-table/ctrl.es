@@ -40,6 +40,10 @@ class ModelGridCtrl {
     this.scope.ctrl = this
   }
 
+  createRow (event, model) {
+    nav.go('form', {model: this.modelName, id: null})
+  }
+
   editRow (event, model) {
     nav.go('form', {model: this.modelName, id: model.id})
   }
