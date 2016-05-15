@@ -1,4 +1,5 @@
 import states from '../../config/states'
+import models from '../../config/models'
 
 let routes = {}
 
@@ -13,11 +14,12 @@ routes[states.model.name] = {
   url: states.model.url,
   controller: [ '$stateParams', '$scope',
     function ($stateParams, $scope) {
+      $scope.modelLabel = models[$stateParams.model]
       $scope.model = $stateParams.model
       $scope.modelId = $stateParams.id
     }
   ],
-  template: '<h1></h1><ui-view />'
+  template: '<h1 class="bk-header">{{modelLabel}}</h1><ui-view />'
 }
 
 routes[states.form.name] = {

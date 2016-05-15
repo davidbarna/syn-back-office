@@ -1,5 +1,6 @@
 import forms from './forms'
 import grids from './grids'
+import models from './models'
 
 export default {
   production: {
@@ -24,7 +25,8 @@ export default {
       }
     },
     forms: forms,
-    grids: grids
+    grids: grids,
+    models: models
   },
   development: {
     _extends: 'production',
