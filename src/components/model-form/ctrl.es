@@ -110,10 +110,10 @@ class ModelFormCtrl {
     promise
       .then((response) => {
         swal({
-          title: "¡Guardado!",
+          title: '¡Guardado!',
           type: 'success',
           timer: 1000
-        });
+        })
 
         if (!this.editionMode) {
           this.formOptions.resetModel()
