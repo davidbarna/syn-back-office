@@ -123,6 +123,18 @@ export default {
     web: {
       label: 'Web',
       nav: {
+        section: {
+          label: 'Páginas',
+          state: states.list.name,
+          params: { model: 'section' },
+          nav: {
+            sectionCreation: {
+              label: '+',
+              state: states.form.name,
+              params: { model: 'section', id: null }
+            }
+          }
+        },
         home: {
           label: 'Home',
           state: states.form.name,
