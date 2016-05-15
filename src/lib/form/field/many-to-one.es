@@ -1,5 +1,6 @@
 import FieldAbstract from './abstract'
 import Model from '../../model'
+import _ from 'lodash'
 
 class ManyToOneField extends FieldAbstract {
   constructor (attr, conf) {
@@ -16,7 +17,7 @@ class ManyToOneField extends FieldAbstract {
         obj.templateOptions.options = []
         return this.actions.findPopulate()
           .then((results) => {
-            obj.templateOptions.options = results
+            obj.templateOptions.options = _.orderBy(results, [obj.templateOptions.labelProp], ['asc'])
             return obj
           })
           .catch((e) => {
