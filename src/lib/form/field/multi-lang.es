@@ -83,6 +83,7 @@ class MultiLangField extends FieldAbstract {
         placeholder: languageId
       },
       validation: parent.validation,
+      watcher: this.subFieldConfig.watcher,
       expressionProperties: {
         'validation.show': parent.expressionProperties['validation.show'],
         'templateOptions.disabled': ($viewValue, $modelValue, scope) => {

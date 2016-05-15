@@ -11,6 +11,16 @@ class StringField extends FieldAbstract {
     return super.getConfig()
       .then((obj) => {
         obj.templateOptions.maxlength = this.maxLength
+        if (this.conf.filters) {
+          obj.watcher = {
+            listener: (field, newValue, oldValue, scope, stopWatching) => {
+              for (let filter of this.conf.filters) {
+                newValue = filter(field.key, newValue, scope.model)
+              }
+              scope.model[field.key] = newValue
+            }
+          }
+        }
         return obj
       })
   }
