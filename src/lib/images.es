@@ -7,6 +7,6 @@ export default {
       let api = Config.getInstance().api
       rootUrl = api.url + api.images + '/'
     }
-    return String(rootUrl + row.path).replace(/()(\.[^\.]+)/, '$1_xSmall$2')
+    return rootUrl + String(row.path).replace(/()(\.[^\.]+)/, '$1_xSmall$2')
   }
 }
