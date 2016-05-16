@@ -51,7 +51,7 @@ export default {
     settings: {
       label: 'Settings',
       nav: {
-        language: getModelNav('language'),
+        // language: getModelNav('language'),
         country: getModelNav('country'),
         city: getModelNav('city')
       }
