@@ -2,6 +2,7 @@
  * Services related to models
  */
 
+import swal from 'sweetalert'
 import Schema from './schema'
 import Fields from './fields'
 import Header from '../grid/head'
@@ -9,6 +10,9 @@ import Cells from '../grid/cells'
 import Api from '../api'
 import Parser from './parser'
 import Languages from '../languages'
+import Navigation from '../../lib/nav'
+
+var nav = Navigation.getInstance()
 
 class Model {
 
@@ -132,6 +136,36 @@ class Model {
    */
   delete (id) {
     return Api.delete(this.model, id)
+  }
+
+  promptDelete (item) {
+    return new Promise((resolve, reject) => {
+      swal({
+        title: '¿Está seguro?',
+        text: 'Este documento y sus datos relacionados serán borrados y no podrán ser recuperados.',
+        type: 'error',
+        showConfirmButton: true,
+        showCancelButton: true,
+        closeOnConfirm: false,
+        closeOnCancel: true
+      },
+        (isConfirmed) => {
+          if (isConfirmed) {
+            this.delete(item.id)
+              .then(() => {
+                swal('Borrado', 'El documento ha sido borrado', 'success')
+                nav.go('list', {model: this.model})
+                resolve(true)
+              })
+              .catch((e) => {
+                swal('Error', e.message, 'error')
+              })
+          } else {
+            resolve(false)
+          }
+        }
+      )
+    })
   }
 }
 

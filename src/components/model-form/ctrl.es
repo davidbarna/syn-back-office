@@ -5,9 +5,6 @@
 
 import swal from 'sweetalert'
 import Model from '../../lib/model'
-import Navigation from '../../lib/nav'
-
-var nav = Navigation.getInstance()
 
 class ModelFormCtrl {
 
@@ -83,15 +80,7 @@ class ModelFormCtrl {
   }
 
   delete () {
-    if (window.confirm('Are you sure?')) {
-      this.actions.delete(this.model.id)
-        .then(() => {
-          nav.go('list', {model: this.modelName})
-        })
-        .catch((e) => {
-          swal('Error', e.message, 'error')
-        })
-    }
+    this.actions.promptDelete(this.model)
   }
 
   submit () {

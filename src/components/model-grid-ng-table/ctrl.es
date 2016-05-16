@@ -4,7 +4,6 @@
  */
 
 import _ from 'lodash'
-import swal from 'sweetalert'
 import Model from '../../lib/model'
 import Navigation from '../../lib/nav'
 import ngTableCols from '../../lib/angular/ngTable/cols'
@@ -55,18 +54,15 @@ class ModelGridCtrl {
 
   deleteRow (event, model) {
     event.stopPropagation()
-    if (window.confirm('Are you sure?')) {
-      this.actions.delete(model.id)
-        .then(() => {
+    this.actions.promptDelete(model)
+      .then((wasDelete) => {
+        if (wasDelete) {
           _.remove(this.tableParams.settings().dataset, function (item) {
             return model.id === item.id
           })
           this.tableParams.reload()
-        })
-        .catch((e) => {
-          swal('Error', e.message, 'error')
-        })
-    }
+        }
+      })
   }
 
   destroy () {}
