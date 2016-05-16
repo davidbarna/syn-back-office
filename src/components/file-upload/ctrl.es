@@ -33,7 +33,7 @@ class FileUploadCtrl {
       headers: {
         'access_token': gSession.get().token()
       },
-      maxFilesize: 2,
+      maxFilesize: 4,
       thumbnailWidth: 80,
       thumbnailHeight: 80,
       parallelUploads: 1,

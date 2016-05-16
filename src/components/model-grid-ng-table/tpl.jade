@@ -1,10 +1,11 @@
 button.btn.btn-primary.bk-create-button(ng-click="ctrl.createRow($event)") Crear
-table.table.table-condensed.table-bordered.table-striped(ng-table-dynamic='ctrl.tableParams with ctrl.tableCols')
-  tr(ng-repeat='row in $data' ng-click="ctrl.editRow($event, row)")
-    td(ng-repeat='col in $columns')
-      span(ng-bind-html="col.getValue(row,col)")
-      span( class="bk-action-buttons" ng-if="col.field === 'actions'")
-        button.btn.btn-default.btn-sm(ng-click="ctrl.copyRow($event, row)")
-          span.glyphicon.glyphicon-copy
-        button.btn.btn-danger.btn-sm(ng-click="ctrl.deleteRow($event, row)")
-          span.glyphicon.glyphicon-trash
+div(ng-if="ctrl.tableParams")
+  table.table.table-condensed.table-bordered.table-striped( ng-table-dynamic='ctrl.tableParams with ctrl.tableCols')
+    tr(ng-repeat='row in $data' ng-click="ctrl.editRow($event, row)")
+      td(ng-repeat='col in $columns')
+        span(ng-bind-html="col.getValue(row,col)")
+        span( class="bk-action-buttons" ng-if="col.field === 'actions'")
+          button.btn.btn-default.btn-sm(ng-click="ctrl.copyRow($event, row)")
+            span.glyphicon.glyphicon-copy
+          button.btn.btn-danger.btn-sm(ng-click="ctrl.deleteRow($event, row)")
+            span.glyphicon.glyphicon-trash

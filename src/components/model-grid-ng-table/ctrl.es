@@ -37,6 +37,7 @@ class ModelGridCtrl {
     })
     this.tableCols = ngTableCols.getColsConfig(config)
     this.scope.ctrl = this
+    this.scope.$digest()
   }
 
   createRow (event, model) {
