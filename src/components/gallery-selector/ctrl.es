@@ -64,7 +64,6 @@ class ModelGridCtrl {
 
   toggleSelection (row) {
     if (!this.isSelected(row)) {
-      console.log(this.multipleSelect)
       if (!this.multipleSelect) {
         this.selected = []
       }

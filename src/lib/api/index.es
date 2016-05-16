@@ -6,6 +6,7 @@
  */
 import Config from '../../lib/config'
 import synAuth from 'syn-auth'
+import swal from 'sweetalert'
 
 var conf = Config.getInstance().api
 var gSession = synAuth.session.global
@@ -74,7 +75,7 @@ class Api {
  * @param  {string|number} id
  * @return {string} Valid Url
  */
-var getUrl = (baseUrl, resource = '', id = '') => {
+var getUrl = (baseUrl, resource = '' , id = '') => {
   if (baseUrl.indexOf('://') === -1) {
     baseUrl = conf.url + baseUrl
   }
@@ -91,16 +92,28 @@ var getUrl = (baseUrl, resource = '', id = '') => {
  * @return {Promise}
  */
 var getData = (url, params = {}) => {
-  return window.fetch(url, processRequestParams(params))
-    .then(function (response) {
-      if (!response.ok) {
-        throw Error(`[${response.status}] ${response.statusText}`)
-      }
-      return response.text()
-    })
-    .then(function (response) {
-      return JSON.parse(response)
-    })
+
+  return new Promise(function (resolve, reject) {
+    window.fetch(url, processRequestParams(params))
+      .then(function (response) {
+        if (response.ok) {
+          response.text()
+            .then(function (text) {
+              resolve(JSON.parse(text))
+            })
+        } else {
+          if (response.status === 401) {
+            swal({
+              title: 'Problema de sesión',
+              text: 'Debe volver a loguearse para poder utilizar la aplicación',
+              type: 'error'
+            }, function () { gSession.clear() })
+          } else {
+            reject(Error(`[${response.status}] ${response.statusText}`))
+          }
+        }
+      })
+  })
 }
 
 /**
