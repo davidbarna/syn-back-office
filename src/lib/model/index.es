@@ -11,8 +11,10 @@ import Api from '../api'
 import Parser from './parser'
 import Languages from '../languages'
 import Navigation from '../../lib/nav'
+import nodeCache from 'node-cache'
 
 var nav = Navigation.getInstance()
+var modelCache = {}
 
 class Model {
 
@@ -22,6 +24,10 @@ class Model {
    */
   constructor (resource) {
     this.model = resource
+    if (!modelCache[this.model]) {
+      modelCache[this.model] = new nodeCache({ stdTTL: 60 * 60 * 4 })
+    }
+    this.cache = modelCache[this.model]
   }
 
   /**
@@ -78,6 +84,10 @@ class Model {
    * @return {Promise}
    */
   findPopulate () {
+    let cache = this.cache.get('findPopulate')
+    if (cache) {
+      return new Promise(function (resolve) { resolve(cache) })
+    }
     return Promise.all([this.getSchema(), this.find()])
       .then((responses) => {
         var [schema, results] = responses
@@ -90,6 +100,7 @@ class Model {
             parsed[key] = parsed[key][Languages.getDefaultId()]
           }
         }
+        this.cache.set('findPopulate', results)
         return results
       })
   }
@@ -108,7 +119,15 @@ class Model {
    * @return {Promise}
    */
   find () {
+    let cache = this.cache.get('find')
+    if (cache) {
+      return new Promise(function (resolve) { resolve(cache) })
+    }
     return Api.get(this.model)
+      .then((items) => {
+        this.cache.set('find', items)
+        return items
+      })
   }
 
   /**
@@ -117,6 +136,7 @@ class Model {
    * @return {Promise}
    */
   create (params) {
+    this.cache.flushAll()
     return Api.post(this.model, { body: params })
   }
 
@@ -126,6 +146,7 @@ class Model {
    * @return {Promise}
    */
   update (params) {
+    this.cache.flushAll()
     return Api.put(this.model, { body: params })
   }
 
@@ -135,6 +156,7 @@ class Model {
    * @return {Promise}
    */
   delete (id) {
+    this.cache.flushAll()
     return Api.delete(this.model, id)
   }
 
