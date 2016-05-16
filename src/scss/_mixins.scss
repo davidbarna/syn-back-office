@@ -12,14 +12,12 @@
 
   width: calc(#{$width} - #{$gutter});
 
-  &:not(.field-language-switch):nth-child(odd) {
+  &:nth-child(odd) {
     float: left;
     clear: left;
   }
-
-  &:not(.field-language-switch):nth-child(even) {
+  &:nth-child(even) {
     float: right;
     clear: right;
   }
-
 }
