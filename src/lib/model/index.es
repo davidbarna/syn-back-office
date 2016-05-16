@@ -175,7 +175,12 @@ class Model {
           if (isConfirmed) {
             this.delete(item.id)
               .then(() => {
-                swal('Borrado', 'El documento ha sido borrado', 'success')
+                swal({
+                  title: 'Borrado',
+                  text: 'El documento ha sido borrado',
+                  type: 'success',
+                  timer: 1000
+                })
                 nav.go('list', {model: this.model})
                 resolve(true)
               })
