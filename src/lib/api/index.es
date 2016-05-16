@@ -75,7 +75,7 @@ class Api {
  * @param  {string|number} id
  * @return {string} Valid Url
  */
-var getUrl = (baseUrl, resource = '' , id = '') => {
+var getUrl = (baseUrl, resource = '', id = '') => {
   if (baseUrl.indexOf('://') === -1) {
     baseUrl = conf.url + baseUrl
   }
@@ -92,7 +92,6 @@ var getUrl = (baseUrl, resource = '' , id = '') => {
  * @return {Promise}
  */
 var getData = (url, params = {}) => {
-
   return new Promise(function (resolve, reject) {
     window.fetch(url, processRequestParams(params))
       .then(function (response) {

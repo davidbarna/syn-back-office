@@ -11,7 +11,7 @@ import Api from '../api'
 import Parser from './parser'
 import Languages from '../languages'
 import Navigation from '../../lib/nav'
-import nodeCache from 'node-cache'
+import NodeCache from 'node-cache'
 
 var nav = Navigation.getInstance()
 var modelCache = {}
@@ -25,7 +25,7 @@ class Model {
   constructor (resource) {
     this.model = resource
     if (!modelCache[this.model]) {
-      modelCache[this.model] = new nodeCache({ stdTTL: 60 * 60 * 4 })
+      modelCache[this.model] = new NodeCache({ stdTTL: 60 * 60 * 4 })
     }
     this.cache = modelCache[this.model]
   }

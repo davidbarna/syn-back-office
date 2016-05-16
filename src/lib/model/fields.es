@@ -79,7 +79,7 @@ var getFields = function (model, schema) {
   // Default language switch field is added into any form
   if (hasMultilanguageField(model, schema)) {
     promises.push(getLanguageField(defaults).getConfig())
-    promises.push({ template: `` })
+    promises.push({ template: '' })
   }
 
   for (let conf of configs) {
