@@ -6,7 +6,7 @@ syn-auth-login-form( ng-if="!userLogged" url="loginUrl" channel="{{ loginChannel
       img(ng-src="{{logo}}")
 
 syn-nav-stack.syn-bo-layout_aside(
-  ng-if="userLogged"
+  ng-show="userLogged"
   options="menuConfig" 
   channel="{{ menuChannel }}"
   compact
