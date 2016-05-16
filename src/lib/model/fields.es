@@ -56,7 +56,13 @@ var getLanguageField = function (defaults) {
 }
 
 var hasMultilanguageField = function (model, schema) {
-  return config.app.languages.model !== model
+  for (let key of Object.keys(schema)) {
+    schema[key].meta = schema[key].meta || {}
+    if (schema[key].meta.isTranslation) {
+      return true
+    }
+  }
+  return false
 }
 
 /**

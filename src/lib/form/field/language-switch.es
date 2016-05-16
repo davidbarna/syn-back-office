@@ -25,6 +25,7 @@ class LanguageSwitchField extends FieldManyToOne {
       .then((obj) => {
         obj.type = 'select'
         obj.defaultValue = defaultValue
+        obj.className = 'field-language-switch'
         obj.templateOptions.labelProp = 'label'
         obj.templateOptions.label = 'Idioma de edición'
         obj.expressionProperties = {
@@ -33,8 +34,9 @@ class LanguageSwitchField extends FieldManyToOne {
             return obj.templateOptions.label
           }
         }
+
         for (let opt of obj.templateOptions.options) {
-          opt.label = opt.id
+          opt.label = opt.name
         }
         obj.templateOptions.options.unshift({ id: ALL, label: '*' })
 
