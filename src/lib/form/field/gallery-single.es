@@ -11,6 +11,7 @@ class GallerySingleField extends FieldGallery {
     if (data[0]) {
       return { id: data[0] }
     }
+    return data
   }
 
   static getData (data = {}) {
