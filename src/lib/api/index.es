@@ -10,6 +10,7 @@ import swal from 'sweetalert'
 
 var conf = Config.getInstance().api
 var gSession = synAuth.session.global
+const LIST_LIMIT = 300
 
 class Api {
 
@@ -31,7 +32,7 @@ class Api {
    */
   static get (resource, id, params = {}) {
     params.method = 'GET'
-    return getData(getUrl(conf.resource.rest, resource, id), params)
+    return getData(getUrl(conf.resource.rest, resource, id) + `?limit=${LIST_LIMIT}`, params)
   }
 
   /**
