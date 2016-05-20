@@ -10,7 +10,7 @@ import swal from 'sweetalert'
 
 var conf = Config.getInstance().api
 var gSession = synAuth.session.global
-const LIST_LIMIT = 300
+const LIST_LIMIT = 1000
 
 class Api {
 
