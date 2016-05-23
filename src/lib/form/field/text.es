@@ -15,9 +15,12 @@ class TextField extends FieldAbstract {
             inline: false,
             menubar: false,
             statusbar: false,
+            cleanup: false,
+            verify_html: false,
             skin: 'lightgray',
             theme: 'modern',
-            toolbar1: 'undo redo | bold italic | bullist numlist',
+            plugins: 'code',
+            toolbar1: 'undo redo | bold italic | bullist numlist | code',
             toolbar2: 'print'
           }
         }
