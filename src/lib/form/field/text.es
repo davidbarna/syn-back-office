@@ -24,7 +24,6 @@ class TextField extends FieldAbstract {
             toolbar2: 'print'
           }
         }
-        console.log(obj)
 
         return obj
       })
