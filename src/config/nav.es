@@ -23,7 +23,8 @@ export default {
       nav: {
         hotel: getModelNav('hotel'),
         lounge: getModelNav('lounge'),
-        space: getModelNav('space')
+        space: getModelNav('space'),
+        promotion: getModelNav('promotion')
       }
     },
     options: {

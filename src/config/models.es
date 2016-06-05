@@ -2,6 +2,7 @@ export default {
   hotel: 'Hoteles',
   lounge: 'Salones',
   space: 'Espacios de hotel',
+  promotion: 'Promociones',
   mediafile: 'Archivos multimedia',
   textfile: 'Archivos de texto',
   extra: 'Extras',
