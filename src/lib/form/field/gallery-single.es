@@ -8,7 +8,7 @@ class GallerySingleField extends FieldGallery {
   }
 
   static parseData (data) {
-    if (data[0]) {
+    if (!!data && data[0]) {
       return { id: data[0] }
     }
     return data
