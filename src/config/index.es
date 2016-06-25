@@ -14,7 +14,7 @@ export default {
       }
     },
     api: {
-      url: 'http://localhost:1337',
+      url: 'http://localhost:2337',
       images: '/uploads',
       resource: {
         schema: '/api/v1/:model/schema',

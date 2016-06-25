@@ -24,7 +24,8 @@ export default {
         hotel: getModelNav('hotel'),
         lounge: getModelNav('lounge'),
         space: getModelNav('space'),
-        promotion: getModelNav('promotion')
+        promotion: getModelNav('promotion'),
+        story: getModelNav('story')
       }
     },
     options: {
@@ -54,7 +55,8 @@ export default {
       nav: {
         // language: getModelNav('language'),
         country: getModelNav('country'),
-        city: getModelNav('city')
+        city: getModelNav('city'),
+        user: getModelNav('user')
       }
     }
   }
