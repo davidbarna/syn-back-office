@@ -14,7 +14,7 @@ export default {
       }
     },
     api: {
-      url: 'http://localhost:1337',
+      url: 'http://meetbarcelo.com',
       images: '/uploads',
       resource: {
         schema: '/api/v1/:model/schema',
@@ -28,8 +28,20 @@ export default {
     grids: grids,
     models: models
   },
+  preproduction: {
+    _extends: 'production',
+    api: {
+      url: 'http://pre.meetbarcelo.com'
+    },
+    app: {
+      name: 'BackOffice PreProd'
+    }
+  },
   development: {
     _extends: 'production',
+    api: {
+      url: 'http://localhost:2337'
+    },
     app: {
       name: 'BackOffice Dev'
     }

@@ -12,5 +12,7 @@ export default {
   section: 'Páginas',
   language: 'Idiomas',
   country: 'Paises',
-  city: 'Ciudades'
+  city: 'Ciudades',
+  type: 'Tipos de hotel',
+  eventtype: 'Tipos de evento'
 }
