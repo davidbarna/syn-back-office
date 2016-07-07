@@ -33,6 +33,8 @@ export default {
       nav: {
         files: getModelNav('mediafile'),
         textfiles: getModelNav('textfile'),
+        type: getModelNav('type'),
+        eventtype: getModelNav('eventtype'),
         extra: getModelNav('extra'),
         montage: getModelNav('montage'),
         service: getModelNav('service'),

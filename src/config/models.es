@@ -3,7 +3,6 @@ export default {
   lounge: 'Salones',
   space: 'Espacios de hotel',
   promotion: 'Promociones',
-  story: 'Casos de éxito',
   mediafile: 'Archivos multimedia',
   textfile: 'Archivos de texto',
   extra: 'Extras',
@@ -14,5 +13,6 @@ export default {
   language: 'Idiomas',
   country: 'Paises',
   city: 'Ciudades',
-  user: 'Usuarios'
+  type: 'Tipos de hotel',
+  eventtype: 'Tipos de evento'
 }
