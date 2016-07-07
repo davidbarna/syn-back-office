@@ -1,6 +1,6 @@
 {
   "name": "syn-back-office",
-  "version": "0.0.27",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "dependencies": {
