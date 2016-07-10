@@ -13,6 +13,7 @@ import FieldManyToMany from './field/many-to-many'
 import FieldManyToManyValues from './field/many-to-many-values'
 import FieldLanguageSwitch from './field/language-switch'
 import FieldFileUpload from './field/file-upload'
+import FieldPassword from './field/password'
 
 export var String = FieldString
 export var Text = FieldText
@@ -26,6 +27,7 @@ export var ManyToMany = FieldManyToMany
 export var ManyToManyValues = FieldManyToManyValues
 export var LanguageSwitch = FieldLanguageSwitch
 export var FileUpload = FieldFileUpload
+export var Password = FieldPassword
 
 /**
  * According to model attribute, it returns
@@ -38,6 +40,8 @@ export var getFromAttribute = function (attr) {
   attr.meta.field = attr.meta.field || {}
   if (attr.multiLanguage) {
     return MultiLang
+  } else if (attr.meta.isPassword === true) {
+    return Password
   } else if (attr.meta.field.fieldType === 'select') {
     return Select
   } else if (attr.collection === 'mediafile') {
