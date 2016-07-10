@@ -16,5 +16,6 @@ export default {
   type: 'Tipos de hotel',
   eventtype: 'Tipos de evento',
   user: 'Usuarios',
-  story: 'Casos de éxito'
+  story: 'Casos de éxito',
+  mailsent: 'Emails enviados'
 }
