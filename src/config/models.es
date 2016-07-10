@@ -14,5 +14,8 @@ export default {
   country: 'Paises',
   city: 'Ciudades',
   type: 'Tipos de hotel',
-  eventtype: 'Tipos de evento'
+  eventtype: 'Tipos de evento',
+  user: 'Usuarios',
+  story: 'Casos de éxito',
+  mailsent: 'Emails enviados'
 }

@@ -58,7 +58,8 @@ export default {
         // language: getModelNav('language'),
         country: getModelNav('country'),
         city: getModelNav('city'),
-        user: getModelNav('user')
+        user: getModelNav('user'),
+        mailsent: getModelNav('mailsent')
       }
     }
   }
