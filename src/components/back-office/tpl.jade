@@ -1,4 +1,9 @@
-syn-auth-login-form( ng-if="!userLogged" url="loginUrl" channel="{{ loginChannel }}")
+syn-auth-login-form( 
+    ng-if="!userLogged"
+    url="loginUrl" 
+    channel="{{ loginChannel }}"
+    stay-logged-in="true"
+  )
   img(ng-src="{{logo}}")
 .syn-bo-layout(ng-if="userLogged")
   syn-app-header.syn-bo-layout_header
