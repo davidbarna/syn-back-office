@@ -1,7 +1,6 @@
 import { pubsub } from 'syn-core'
 import synAuth from 'syn-auth'
 import Config from '../../lib/config'
-import buttons from '../../config/nav'
 import Navigation from '../../lib/nav'
 import states from '../../config/states'
 
@@ -34,7 +33,7 @@ class BackOfficeCtrl {
     this.sessionChange(gSession.get())
     this.render({
       logo: this.config.app.logo,
-      menuConfig: buttons,
+      menuConfig: this.config.nav,
       loginUrl: this.api.url + this.api.resource.login,
       menuChannel: MENU_CHANNEL,
       loginChannel: LOGIN_CHANNEL

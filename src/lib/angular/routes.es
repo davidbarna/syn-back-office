@@ -1,6 +1,6 @@
-import states from '../../config/states'
-import models from '../../config/models'
+import Config from '../../lib/config'
 
+var {models, states} = Config.getInstance()
 let routes = {}
 
 routes[states.home.name] = {

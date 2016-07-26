@@ -1,6 +1,8 @@
 import forms from './forms'
 import grids from './grids'
 import models from './models'
+import nav from './nav'
+import states from './states'
 
 export default {
   production: {
@@ -14,7 +16,7 @@ export default {
       }
     },
     api: {
-      url: 'http://meetbarcelo.com',
+      url: 'http://my-api.com',
       images: '/uploads',
       resource: {
         schema: '/api/v1/:model/schema',
@@ -26,12 +28,14 @@ export default {
     },
     forms: forms,
     grids: grids,
-    models: models
+    models: models,
+    nav: nav,
+    states: states
   },
   preproduction: {
     _extends: 'production',
     api: {
-      url: 'http://pre.meetbarcelo.com'
+      url: 'http://pre.my-api.com'
     },
     app: {
       name: 'BackOffice PreProd'
@@ -40,7 +44,7 @@ export default {
   development: {
     _extends: 'production',
     api: {
-      url: 'http://localhost:2337'
+      url: 'http://localhost:3000'
     },
     app: {
       name: 'BackOffice Dev'
