@@ -10,14 +10,14 @@
   $width: 100% / $num;
   $gutter: $spacing * 2 / $num;
 
-  width: calc(#{$width} - #{$gutter});
+  width: calc( #{$width} - #{$gutter} );
 
-  &:nth-child(odd) {
+  &:nth-child( odd ) {
     float: left;
     clear: left;
   }
 
-  &:nth-child(even) {
+  &:nth-child( even ) {
     float: right;
     clear: right;
   }

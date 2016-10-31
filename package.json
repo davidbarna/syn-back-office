@@ -12,6 +12,7 @@
     "angular-ui-router": "0.2.18",
     "angular-ui-tinymce": "0.0.15",
     "api-check": "7.5.5",
+    "bluebird": "3.4.6",
     "bootstrap": "3.3.6",
     "bootstrap-sass": "3.3.6",
     "dropzone": "4.3.0",
@@ -25,6 +26,8 @@
     "syn-ui": "~0"
   },
   "devDependencies": {
+    "jade": "1.11.0",
+    "stringify": "5.1.0",
     "syn-dev-tools": "~0"
   },
   "files": [
