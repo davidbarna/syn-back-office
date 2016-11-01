@@ -1,0 +1,8 @@
+// scss-lint:disable all
+// Center-align a block level element
+
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

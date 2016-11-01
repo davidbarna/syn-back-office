@@ -26,6 +26,7 @@
     "syn-ui": "~0"
   },
   "devDependencies": {
+    "gulp-insert": "0.5.0",
     "jade": "1.11.0",
     "stringify": "5.1.0",
     "syn-dev-tools": "~0"
@@ -36,7 +37,7 @@
   ],
   "scripts": {
     "test": "gulp test",
-    "prepublish": "gulp"
+    "prepublish": "gulp vendor-scss-copy; gulp"
   },
   "browserify": {
     "transform": [

@@ -1,0 +1,13 @@
+// scss-lint:disable all
+
+@mixin syn-box-centered {
+  // scss-lint:disable VendorPrefix
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  transform: translateY( -50% );
+  -webkit-transform: translateY( -50% );
+}
