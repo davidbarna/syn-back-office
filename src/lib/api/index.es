@@ -123,7 +123,7 @@ var getData = (url, params = {}) => {
  */
 var processRequestParams = function (params) {
   params.headers = params.headers || {}
-  params.headers.access_token = gSession.get().token()
+  params.headers.Authorization = `Bearer ${gSession.get().token()}`
   if (typeof params.body === 'object') {
     params.body = JSON.stringify(params.body)
   }

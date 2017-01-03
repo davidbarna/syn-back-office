@@ -31,7 +31,7 @@ class FileUploadCtrl {
     this.dropzoneConfig = {
       url: config.api.url + config.api.resource.upload,
       headers: {
-        'access_token': gSession.get().token()
+        Authorization: `Bearer ${gSession.get().token()}`
       },
       maxFilesize: 4,
       thumbnailWidth: 80,

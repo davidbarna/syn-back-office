@@ -39,11 +39,11 @@ export default {
       cols.push(col)
     }
 
-    cols.push({
-      title: '',
-      field: 'actions',
-      show: true
-    })
+    // cols.push({
+    //   title: '',
+    //   field: 'actions',
+    //   show: true
+    // })
     return cols
   }
 }

@@ -34,7 +34,7 @@ class BackOfficeCtrl {
     this.render({
       logo: this.config.app.logo,
       menuConfig: this.config.nav,
-      loginUrl: this.api.url + this.api.resource.login,
+      loginUrl: this.api.resource.login,
       menuChannel: MENU_CHANNEL,
       loginChannel: LOGIN_CHANNEL
     })
