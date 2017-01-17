@@ -25,4 +25,4 @@ node_modules
 ################################################################
 /dist
 /reports
-/src/vendor/scss
+/src/scss/vendor
