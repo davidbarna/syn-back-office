@@ -1,0 +1,96 @@
+// scss-lint:disable all
+$_spacing: $spacing * 1.1;
+$_c-bg: $c-brand;
+$_c-contrast: $c-brand-contrast;
+$_height: $syn-app-header-height;
+$_height-mobile: $syn-app-header-height--small;
+$_user-height: 3.1rem;
+
+
+// Sets all sizes and spacings of the component
+@mixin syn-app-header-layout( $height, $spacing ) {
+  $logo-spacing: $spacing / 2;
+
+  height: $height;
+
+  logo {
+    top: $logo-spacing;
+    left: $logo-spacing * 2;
+
+    svg, img {
+      height: $height - $logo-spacing * 2;
+
+      path {
+        fill: $_c-contrast;
+      }
+    }
+  }
+
+  .syn-app-header_user {
+    margin-top: ( $height - $_user-height ) / 2;
+    margin-right: $spacing;
+  }
+}
+
+syn-app-header {
+  @include clearfix;
+  @include syn-app-header-layout( $_height, $_spacing );
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: $_c-bg;
+
+  logo {
+    position: relative;
+  }
+
+  .syn-app-header_user {
+    @include clearfix;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    padding: 1rem;
+    border: 1px #fff solid;
+    border-radius: 3px;
+    font-size: 1.2rem;
+
+    &_img {
+      float: left;
+      width: $_user-height;
+      height: $_user-height;
+      margin-top: -.2rem;
+      margin-right: $_spacing / 2;
+      background: #ccc;
+      border: 2px solid $_c-contrast;
+      border-radius: 100%;
+      box-shadow: 0 1px 3px rgba( #000, .3 );
+    }
+
+    &_text {
+      float: left;
+    }
+
+    &_title {
+      white-space: nowrap;
+      font-size: 130%;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    &_subtitle {
+      white-space: nowrap;
+      line-height: 1;
+      color: #fff;
+    }
+  }
+}
+
+// Layout for mobile
+@media #{$small-only} {
+  syn-app-header {
+    @include syn-app-header-layout( $_height-mobile, $_spacing / 2 );
+  }
+}
